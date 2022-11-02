@@ -9044,6 +9044,18 @@
 /obj/item/pen,
 /turf/simulated/floor/tiled,
 /area/security/briefing_room)
+"gux" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/table/rack/shelf/steel,
+/turf/simulated/floor/tiled/freezer,
+/area/crew_quarters/pool)
 "guD" = (
 /obj/effect/floor_decal/borderfloor{
 	dir = 1
@@ -59225,7 +59237,7 @@ sen
 nTT
 dSZ
 nTT
-nTT
+gux
 nTT
 cdD
 pOI
