@@ -1,6 +1,7 @@
 /obj/structure
 	icon = 'icons/obj/structures.dmi'
 	w_class = ITEMSIZE_NO_CONTAINER
+	pass_flags = ATOM_PASS_BUCKLED
 
 	var/climbable
 	var/climb_delay = 3.5 SECONDS
@@ -11,6 +12,28 @@
 	var/list/other_connections
 	var/list/blend_objects = newlist() // Objects which to blend with
 	var/list/noblend_objects = newlist() //Objects to avoid blending with (such as children of listed blend objects.
+
+/obj/structure/Initialize(mapload)
+	. = ..()
+
+	if(climbable)
+		verbs += /obj/structure/proc/climb_on
+
+	if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
+		QUEUE_SMOOTH(src)
+		QUEUE_SMOOTH_NEIGHBORS(src)
+		if(smoothing_flags & SMOOTH_CORNERS)
+			icon_state = ""
+
+	GLOB.cameranet.updateVisibility(src)
+
+/obj/structure/Destroy()
+	GLOB.cameranet.updateVisibility(src)
+
+	if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
+		QUEUE_SMOOTH_NEIGHBORS(src)
+
+	return ..()
 
 /obj/structure/attack_hand(mob/user)
 	if(breakable)
@@ -32,7 +55,7 @@
 /obj/structure/attack_tk()
 	return
 
-/obj/structure/ex_act(severity)
+/obj/structure/legacy_ex_act(severity)
 	switch(severity)
 		if(1.0)
 			qdel(src)
@@ -43,11 +66,6 @@
 				return
 		if(3.0)
 			return
-
-/obj/structure/Initialize(mapload)
-	. = ..()
-	if(climbable)
-		verbs += /obj/structure/proc/climb_on
 
 /obj/structure/proc/climb_on()
 
@@ -88,10 +106,11 @@
 		if(istype(O,/obj/structure))
 			var/obj/structure/S = O
 			if(S.climbable) continue
-		if(O && O.density && !(O.flags & ON_BORDER)) //ON_BORDER structures are handled by the Adjacent() check.
+		if(O && O.density && !(O.atom_flags & ATOM_BORDER)) //ATOM_BORDER structures are handled by the Adjacent() check.
 			return O
 	return 0
 
+// todo: climbable obj-level (to avoid element/signal spam)
 /obj/structure/proc/do_climb(var/mob/living/user)
 	if (!can_climb(user))
 		return

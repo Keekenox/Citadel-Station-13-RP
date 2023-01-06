@@ -3,24 +3,23 @@
 	icon_state = "snow"
 	edge_blending_priority = 1
 	movement_cost = 2
-	initial_flooring = /decl/flooring/snow
+	initial_flooring = /singleton/flooring/snow
 	baseturfs = /turf/simulated/floor/outdoors/dirt
-	var/list/crossed_dirs = list()
 
-/turf/simulated/floor/outdoors/snow/Entered(atom/A)
-	if(isliving(A))
-		var/mob/living/L = A
-		if(L.hovering) // Flying things shouldn't make footprints.
-			return ..()
-		var/mdir = "[A.dir]"
-		crossed_dirs[mdir] = 1
-		update_icon()
-	..()
+	// smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
+	smoothing_groups = (SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_FLOOR_SNOW)
+	canSmoothWith = (SMOOTH_GROUP_FLOOR_SNOW)
 
-/turf/simulated/floor/outdoors/snow/update_icon()
-	..()
-	for(var/d in crossed_dirs)
-		add_overlay(image(icon = 'icons/turf/outdoors.dmi', icon_state = "snow_footprints", dir = text2num(d)))
+	var/crossed_dirs = NONE
+
+/turf/simulated/floor/outdoors/snow/Entered(atom/movable/AM)
+	if(AM.hovering || AM.is_incorporeal()) // Flying things shouldn't make footprints.
+		return ..()
+	if(isliving(AM))
+		if(!(crossed_dirs & AM.dir))
+			crossed_dirs |= AM.dir
+			add_overlay(image(icon = 'icons/turf/outdoors.dmi', icon_state = "snow_footprints", dir = AM.dir))
+	return ..()
 
 /turf/simulated/floor/outdoors/snow/attackby(var/obj/item/W, var/mob/user)
 	if(istype(W, /obj/item/shovel))
@@ -84,5 +83,5 @@
 	icon_state = "gravsnow"
 	desc = "A layer of coarse ice pebbles and assorted gravel."
 	edge_blending_priority = 0
-	initial_flooring = /decl/flooring/snow/gravsnow
+	initial_flooring = /singleton/flooring/snow/gravsnow
 	baseturfs = /turf/simulated/floor/outdoors/dirt

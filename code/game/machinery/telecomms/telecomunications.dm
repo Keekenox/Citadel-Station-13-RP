@@ -53,7 +53,7 @@
 
 	if(!on)
 		return
-	//to_world("[src] ([src.id]) - [signal.debug_print()]")
+	//TO_WORLD("[src] ([src.id]) - [signal.debug_print()]")
 	var/send_count = 0
 
 	signal.data["slow"] += rand(0, round((100-integrity))) // apply some lag based on integrity
@@ -677,7 +677,7 @@
 //Generic telecomm connectivity test proc
 /proc/can_telecomm(var/atom/A, var/atom/B, var/ad_hoc = FALSE)
 	if(!A || !B)
-		log_debug("can_telecomm(): Undefined endpoints!")
+		log_debug(SPAN_DEBUG("can_telecomm(): Undefined endpoints!"))
 		return FALSE
 
 	//Can't in this case, obviously!

@@ -119,7 +119,7 @@
 
 /atom/movable/screen/movable/action_button
 	var/datum/action/owner
-	screen_loc = "WEST,NORTH"
+	screen_loc = "LEFT,TOP"
 
 /atom/movable/screen/movable/action_button/Click(location,control,params)
 	var/list/modifiers = params2list(params)
@@ -137,7 +137,7 @@
 	icon = owner.button_icon
 	icon_state = owner.background_icon_state
 
-	overlays.Cut()
+	cut_overlays()
 	var/image/img
 	if(owner.action_type == AB_ITEM && owner.target)
 		var/obj/item/I = owner.target
@@ -146,7 +146,7 @@
 		img = image(owner.button_icon,src,owner.button_icon_state)
 	img.pixel_x = 0
 	img.pixel_y = 0
-	overlays += img
+	add_overlay(img)
 
 	if(!owner.IsAvailable())
 		color = rgb(128,0,0,128)
@@ -181,9 +181,9 @@
 	return
 
 /atom/movable/screen/movable/action_button/hide_toggle/UpdateIcon()
-	overlays.Cut()
-	var/image/img = image(icon,src,hidden?"show":"hide")
-	overlays += img
+	cut_overlays()
+	var/image/img = image(icon, src, (hidden ? "show" : "hide"))
+	add_overlay(img)
 	return
 
 //This is the proc used to update all the action buttons. Properly defined in /mob/living/
@@ -201,7 +201,7 @@
 	var/coord_col_offset = AB_WEST_OFFSET+2*col
 	var/coord_row = "[-1 - row]"
 	var/coord_row_offset = AB_NORTH_OFFSET
-	return "WEST[coord_col]:[coord_col_offset],NORTH[coord_row]:[coord_row_offset]"
+	return "LEFT[coord_col]:[coord_col_offset],TOP[coord_row]:[coord_row_offset]"
 
 /datum/hud/proc/SetButtonCoords(var/atom/movable/screen/button,var/number)
 	var/row = round((number-1)/AB_MAX_COLUMNS)

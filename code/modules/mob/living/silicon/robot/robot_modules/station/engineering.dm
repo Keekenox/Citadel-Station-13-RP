@@ -27,7 +27,8 @@
 					"X-88" = "xeightyeight-engineering",
 					"Acheron" = "mechoid-Engineering",
 					"Shellguard Noble" = "Noble-ENG",
-					"ZOOM-BA" = "zoomba-engineering"
+					"ZOOM-BA" = "zoomba-engineering",
+					"W02M" = "worm-engineering"
 					)
 
 /obj/item/robot_module/robot/engineering/construction
@@ -47,7 +48,7 @@
 	src.modules += new /obj/item/pipe_painter(src)
 	src.modules += new /obj/item/floor_painter(src)
 	src.modules += new /obj/item/gripper/no_use/loader(src)
-	src.modules += new /obj/item/geiger(src)
+	src.modules += new /obj/item/geiger_counter(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal()
 	var/datum/matter_synth/plasteel = new /datum/matter_synth/plasteel()
@@ -95,7 +96,7 @@
 	src.modules += new /obj/item/floor_painter(src)
 	src.modules += new /obj/item/inflatable_dispenser/robot(src)
 	src.emag = new /obj/item/melee/baton/robot/arm(src)
-	src.modules += new /obj/item/geiger(src)
+	src.modules += new /obj/item/geiger_counter/cyborg(src)
 	src.modules += new /obj/item/rcd/electric/mounted/borg(src)
 	src.modules += new /obj/item/pickaxe/plasmacutter(src)
 	src.modules += new /obj/item/gripper/no_use/loader(src)
@@ -171,6 +172,8 @@
 					"Pupdozer" = "pupdozer",
 					"V2 Engidog" = "thottbot",
 					"Borgi" = "borgi-eng",
+					"Engineering Hound" = "engihound",
+					"Engineering Hound Dark" = "engihounddark",
 					"F3-LINE" = "FELI-Engineer"
 					)
 	channels = list("Engineering" = 1)
@@ -195,7 +198,7 @@
 	src.modules += new /obj/item/pickaxe/plasmacutter(src)
 	src.modules += new /obj/item/dogborg/jaws/small(src)
 	src.modules += new /obj/item/dogborg/boop_module(src)
-	src.modules += new /obj/item/geiger(src)
+	src.modules += new /obj/item/geiger_counter(src)
 	src.modules += new /obj/item/pipe_painter(src)
 	src.modules += new /obj/item/floor_painter(src)
 	src.modules += new /obj/item/gripper(src)

@@ -1,6 +1,7 @@
 //contains the relavant data for the xenohybrid resin, a more versitile, and legaly distinct material.
 
 /datum/material/hybrid_resin
+	id = "xenoresin_hybrid"
 	name = "resin compound"
 	icon_colour = "#321a49"
 	icon_base = "resin"
@@ -190,7 +191,7 @@
 	healthcheck()
 	return
 
-/obj/effect/alien/hybrid_resin/ex_act(severity)
+/obj/effect/alien/hybrid_resin/legacy_ex_act(severity)
 	switch(severity)
 		if(1.0)
 			health-=50

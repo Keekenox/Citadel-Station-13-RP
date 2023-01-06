@@ -78,15 +78,15 @@
 			return
 		disk = W
 		to_chat(user, "<span class='notice'>You insert \the [W] into \the [src].</span>")
-	if(istype(W, /obj/item/disk/body_record))
-		var/obj/item/disk/body_record/brDisk = W
-		if(!brDisk.stored)
-			to_chat(user, "<span class='warning'>\The [W] does not contain a stored body record.</span>")
-			return
-		active_br = new /datum/transhuman/body_record(brDisk.stored) // Loads a COPY!
-		menu = 4
-		to_chat(user, "<span class='notice'>\The [src] loads the body record from \the [W] before ejecting it.</span>")
-		attack_hand(user)
+	// if(istype(W, /obj/item/disk/body_record))
+	// 	var/obj/item/disk/body_record/brDisk = W
+	// 	if(!brDisk.stored)
+	// 		to_chat(user, "<span class='warning'>\The [W] does not contain a stored body record.</span>")
+	// 		return
+	// 	active_br = new /datum/transhuman/body_record(brDisk.stored) // Loads a COPY!
+	// 	menu = 4
+	// 	to_chat(user, "<span class='notice'>\The [src] loads the body record from \the [W] before ejecting it.</span>")
+	// 	attack_hand(user)
 	if(istype(W, /obj/item/implant/mirror))
 		if(!user.attempt_insert_item_for_installation(W, src))
 			return
@@ -123,7 +123,7 @@
 
 	if(hasmirror)
 		to_chat(usr, "You eject the mirror.")
-		usr.put_in_hands(hasmirror)
+		usr.put_in_hands_or_drop(hasmirror)
 		hasmirror = null
 		active_mr = null
 	else
@@ -433,7 +433,7 @@
 	to_chat(attacker, "<span class='warning'>You tear open \the [name].</span>")
 	attacker.temporarily_remove_from_inventory(src, INV_OP_FORCE | INV_OP_SHOULD_NOT_INTERCEPT | INV_OP_SILENT)
 	var/obj/item/disk/transcore/newdisk = new(get_turf(src))
-	attacker.put_in_hands(newdisk)
+	attacker.put_in_hands_or_drop(newdisk)
 	qdel(src)
 
 /obj/item/disk/transcore

@@ -19,7 +19,7 @@
 ///////////////////////////////
 
 /proc/spawn_meteors(var/number = 10, var/list/meteortypes, var/startSide, var/zlevel)
-	log_debug("Spawning [number] meteors on the [dir2text(startSide)] of [zlevel]")
+	log_debug(SPAN_DEBUG("Spawning [number] meteors on the [dir2text(startSide)] of [zlevel]"))
 	for(var/i = 0; i < number; i++)
 		spawn_meteor(meteortypes, startSide, zlevel)
 
@@ -93,7 +93,7 @@
 	density = 1
 	anchored = 1
 	var/hits = 4
-	var/hitpwr = 2 //Level of ex_act to be called on hit.
+	var/hitpwr = 2 //Level of legacy_ex_act to be called on hit.
 	var/dest
 	pass_flags = ATOM_PASS_TABLE
 	var/heavy = 0
@@ -156,7 +156,7 @@
 			continue
 		if(isturf(A)) // Don't hit floors. We'll deal with walls later.
 			continue
-		A.ex_act(hitpwr)
+		LEGACY_EX_ACT(A, hitpwr, null)
 
 	//then, ram the turf if it still exists
 	if(T)
@@ -179,7 +179,7 @@
 	meteor_effect(explode)
 	qdel(src)
 
-/obj/effect/meteor/ex_act()
+/obj/effect/meteor/legacy_ex_act()
 	return
 
 /obj/effect/meteor/attackby(obj/item/W as obj, mob/user as mob, params)
@@ -194,7 +194,7 @@
 		O.throw_at_old(dest, 5, 10)
 
 /obj/effect/meteor/proc/shake_players()
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		var/turf/T = get_turf(M)
 		if(!T || T.z != src.z)
 			continue
@@ -272,7 +272,7 @@
 	if(explode)
 		explosion(src.loc, devastation_range = 0, heavy_impact_range = 0, light_impact_range = 4, flash_range = 6, adminlog = 0)
 	new /obj/effect/debris/cleanable/greenglow(get_turf(src))
-	SSradiation.radiate(src, 50)
+	radiation_pulse(src, RAD_INTENSITY_RADIOACTIVE_METEOR)
 
 // This meteor fries toasters.
 /obj/effect/meteor/emp

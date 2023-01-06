@@ -11,6 +11,8 @@ GLOBAL_LIST_EMPTY(PDAs)
 	item_state = "electronic"
 	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_ID | SLOT_BELT
+	rad_flags = RAD_BLOCK_CONTENTS
+	item_flags = ITEM_NOBLUDGEON
 
 	//Main variables
 	var/pdachoice = 1
@@ -457,7 +459,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 				)
 			else
 				icon = 'icons/obj/pda_old.dmi'
-				log_debug("Invalid switch for PDA, defaulting to old PDA icons. [pdachoice] chosen.")
+				log_debug(SPAN_DEBUG("Invalid switch for PDA, defaulting to old PDA icons. [pdachoice] chosen."))
 
 
 /obj/item/pda/proc/can_use()
@@ -984,9 +986,9 @@ GLOBAL_LIST_EMPTY(PDAs)
 /obj/item/pda/update_icon()
 	..()
 
-	overlays.Cut()
+	cut_overlays()
 	if(new_message || new_news)
-		overlays += image(icon, "pda-r")
+		add_overlay(image(icon, "pda-r"))
 
 /obj/item/pda/proc/detonate_act(var/obj/item/pda/P)
 	//TODO: sometimes these attacks show up on the message server
@@ -1114,7 +1116,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 
 		tnote.Add(list(list("sent" = 1, "owner" = "[P.owner]", "job" = "[P.ownjob]", "message" = "[t]", "target" = "\ref[P]")))
 		P.tnote.Add(list(list("sent" = 0, "owner" = "[owner]", "job" = "[ownjob]", "message" = "[t]", "target" = "\ref[src]")))
-		for(var/mob/M in player_list)
+		for(var/mob/M in GLOB.player_list)
 			if(M.stat == DEAD && M.client && (M.is_preference_enabled(/datum/client_preference/ghost_ears))) // src.client is so that ghosts don't have to listen to mice
 				if(istype(M, /mob/new_player))
 					continue
@@ -1338,7 +1340,9 @@ GLOBAL_LIST_EMPTY(PDAs)
 				return
 			to_chat(user, "<span class='notice'>You slot \the [C] into \the [src].</span>")
 
-/obj/item/pda/attack(mob/living/C as mob, mob/living/user as mob)
+/obj/item/pda/attack_mob(mob/target, mob/user, clickchain_flags, list/params, mult, target_zone, intent)
+	. = ..()
+	var/mob/living/carbon/C = target
 	if (istype(C, /mob/living/carbon))
 		switch(scanmode)
 			if(1)
@@ -1593,7 +1597,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 
 /obj/item/pda/pathfinder
 	default_cartridge = /obj/item/cartridge/signal/science
-	icon_state = "pda-lawyer-old"
+	icon_state = "pda-lawyer"
 
 /obj/item/pda/explorer
 	default_cartridge = /obj/item/cartridge/signal/science

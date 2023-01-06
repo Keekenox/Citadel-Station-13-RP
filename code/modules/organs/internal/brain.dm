@@ -164,7 +164,7 @@ GLOBAL_LIST_BOILERPLATE(all_brain_organs, /obj/item/organ/internal/brain)
 	decays = FALSE
 	parent_organ = BP_TORSO
 	clone_source = TRUE
-	flags = OPENCONTAINER
+	atom_flags = OPENCONTAINER
 	var/list/owner_flavor_text = list()
 
 	var/owner_species
@@ -182,8 +182,8 @@ GLOBAL_LIST_BOILERPLATE(all_brain_organs, /obj/item/organ/internal/brain)
 /obj/item/organ/internal/brain/slime/proc/set_owner_vars()
 	if(!ishuman(owner))
 		return
-	owner_species = owner.dna.species
-	owner_base_species = owner.dna.base_species
+	owner_species = owner.species.name
+	owner_base_species = owner.species.base_species || owner_species
 
 /obj/item/organ/internal/brain/slime/proc/sync_color()
 	if(ishuman(owner))
@@ -226,7 +226,7 @@ GLOBAL_LIST_BOILERPLATE(all_brain_organs, /obj/item/organ/internal/brain)
 		if(ckey(clonemind.key) != R.ckey)
 			return FALSE
 	else
-		for(var/mob/observer/dead/G in player_list)
+		for(var/mob/observer/dead/G in GLOB.player_list)
 			if(G.ckey == R.ckey)
 				if(G.can_reenter_corpse)
 					break
@@ -251,12 +251,13 @@ GLOBAL_LIST_BOILERPLATE(all_brain_organs, /obj/item/organ/internal/brain)
 	if(!R.dna.real_name)	//to prevent null names
 		R.dna.real_name = "promethean ([rand(0,999)])"
 	H.real_name = R.dna.real_name
+	H.name = H.real_name
 	H.ooc_notes = brainmob.ooc_notes
 
 	H.nutrition = 260 //Enough to try to regenerate ONCE.
 	H.adjustBruteLoss(40)
 	H.adjustFireLoss(40)
-	H.Paralyse(4)
+	H.Unconscious(4)
 	H.updatehealth()
 	for(var/obj/item/organ/external/E in H.organs) //They've still gotta congeal, but it's faster than the clone sickness they'd normally get.
 		if(E && E.organ_tag == BP_L_ARM || E.organ_tag == BP_R_ARM || E.organ_tag == BP_L_LEG || E.organ_tag == BP_R_LEG)

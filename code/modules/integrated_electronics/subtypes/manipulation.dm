@@ -711,10 +711,10 @@
 			investigate_log("Drilled through [target]")
 		else if(istype(S, /turf/simulated/wall))
 			investigate_log("Drilled through [target]")
-			S.ex_act(2)
+			LEGACY_EX_ACT(S, 2, null)
 	else
 		investigate_log("Drilled through [target]")
-		target.ex_act(2)
+		LEGACY_EX_ACT(target, 2, null)
 	activate_pin(2)
 	return(TRUE)
 
@@ -990,8 +990,3 @@
 	attached_grenade = null
 	size = initial(size)
 	desc = initial(desc)
-
-/obj/item/integrated_circuit/manipulation/grenade/frag
-	pre_attached_grenade_type = /obj/item/grenade/explosive
-	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_COMBAT = 10)
-	spawn_flags = null			// Used for world initializing, see the #defines above.

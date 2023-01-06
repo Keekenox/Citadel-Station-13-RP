@@ -199,7 +199,7 @@ var/syndicate_code_response//Code response for traitors.
 							code_phrase += " "
 							code_phrase += pick(GLOB.last_names)
 					if(2)
-						code_phrase += pick(joblist)//Returns a job.
+						code_phrase += pick(SSjob.all_job_titles())//Returns a job.
 				safety -= 1
 			if(2)
 				switch(rand(1,2))//Places or things.
@@ -289,7 +289,7 @@ var/syndicate_code_response//Code response for traitors.
 			// Returns null if the name doesn't meet some basic requirements. Tidies up a few other things like bad-characters.
 			newname = sanitizeName(newname)
 
-			for(var/mob/living/M in player_list)
+			for(var/mob/living/M in GLOB.player_list)
 				if(M == src)
 					continue
 				if(!newname || M.real_name == newname)

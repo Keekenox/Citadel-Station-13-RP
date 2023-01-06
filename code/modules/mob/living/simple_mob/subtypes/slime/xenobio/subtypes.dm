@@ -201,7 +201,7 @@
 		return list()
 	return T.AtmosAdjacencyFloodfillHeuristic(amt, maxrad)
 
-/mob/living/simple_mob/slime/xenobio/dark_purple/ex_act(severity)
+/mob/living/simple_mob/slime/xenobio/dark_purple/legacy_ex_act(severity)
 	log_and_message_admins("[src] ignited due to a chain reaction with an explosion.")
 	ignite()
 
@@ -510,7 +510,7 @@
 	coretype = /obj/item/slime_extract/green
 	glow_toggle = TRUE
 	reagent_injected = "radium"
-	var/rads = 25
+	var/rads = RAD_INTENSITY_GREEN_SLIME_TICK
 
 	description_info = "This slime will irradiate anything nearby passively, and will inject radium on attack.  \
 	A radsuit or other thick and radiation-hardened armor can protect from this.  It will only radiate while alive."
@@ -530,9 +530,7 @@
 	..()
 
 /mob/living/simple_mob/slime/xenobio/green/proc/irradiate()
-	SSradiation.radiate(src, rads)
-
-
+	radiation_pulse(src, RAD_INTENSITY_GREEN_SLIME_TICK)
 
 /mob/living/simple_mob/slime/xenobio/pink
 	desc = "This slime has regenerative properties."
@@ -658,7 +656,7 @@
 
 	return ..()
 
-/mob/living/simple_mob/slime/xenobio/oil/ex_act(severity)
+/mob/living/simple_mob/slime/xenobio/oil/legacy_ex_act(severity)
 	log_and_message_admins("[src] exploded due to a chain reaction with another explosion.")
 	explode()
 

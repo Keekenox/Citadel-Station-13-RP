@@ -34,48 +34,31 @@
 	return mobs
 
 /proc/random_hair_style(gender, species = SPECIES_HUMAN)
-	var/h_style = "Bald"
-
-	var/list/valid_hairstyles = list()
-	for(var/hairstyle in hair_styles_list)
-		var/datum/sprite_accessory/S = hair_styles_list[hairstyle]
-		if(gender == MALE && S.gender == FEMALE)
-			continue
-		if(gender == FEMALE && S.gender == MALE)
+	var/list/valid = list()
+	for(var/id in GLOB.sprite_accessory_hair)
+		var/datum/sprite_accessory/hair/S = GLOB.sprite_accessory_hair[id]
+		if(S.gender != NEUTER && gender != S.gender)
 			continue
 		if(S.apply_restrictions && !(species in S.species_allowed))
 			continue
-		valid_hairstyles[hairstyle] = hair_styles_list[hairstyle]
-
-	if(valid_hairstyles.len)
-		h_style = pick(valid_hairstyles)
-
-	return h_style
+		valid += id
+	return SAFEPICK(valid)
 
 /proc/random_facial_hair_style(gender, species = SPECIES_HUMAN)
-	var/f_style = "Shaved"
-
-	var/list/valid_facialhairstyles = list()
-	for(var/facialhairstyle in facial_hair_styles_list)
-		var/datum/sprite_accessory/S = facial_hair_styles_list[facialhairstyle]
-		if(gender == MALE && S.gender == FEMALE)
-			continue
-		if(gender == FEMALE && S.gender == MALE)
+	var/list/valid = list()
+	for(var/id in GLOB.sprite_accessory_facial_hair)
+		var/datum/sprite_accessory/facial_hair/S = GLOB.sprite_accessory_facial_hair[id]
+		if(S.gender != NEUTER && gender != S.gender)
 			continue
 		if(S.apply_restrictions && !(species in S.species_allowed))
 			continue
-
-		valid_facialhairstyles[facialhairstyle] = facial_hair_styles_list[facialhairstyle]
-
-	if(valid_facialhairstyles.len)
-		f_style = pick(valid_facialhairstyles)
-
-		return f_style
+		valid += id
+	return SAFEPICK(valid)
 
 /proc/sanitize_name(name, species = SPECIES_HUMAN)
 	var/datum/species/current_species
 	if(species)
-		current_species = name_static_species_meta(species)
+		current_species = SScharacters.resolve_species_name(species)
 
 	return current_species ? current_species.sanitize_name(name) : sanitizeName(name, MAX_NAME_LEN)
 
@@ -83,7 +66,7 @@
 
 	var/datum/species/current_species
 	if(species)
-		current_species = name_static_species_meta(species)
+		current_species = SScharacters.resolve_species_name(species)
 
 	if(!current_species || current_species.name_language == null)
 		if(gender==FEMALE)

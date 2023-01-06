@@ -137,20 +137,22 @@
 /obj/structure/foamedmetal
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "metalfoam"
-	density = 1
-	opacity = 1 // changed in New()
-	anchored = 1
+	density = TRUE
+	opacity = TRUE
+	anchored = TRUE
+	rad_insulation = RAD_INSULATION_MEDIUM
+	rad_stickiness = 0.5
 	name = "foamed metal"
 	desc = "A lightweight foamed metal wall."
-	CanAtmosPass = ATMOS_PASS_AIR_BLOCKED
+	CanAtmosPass = ATMOS_PASS_DENSITY
 	var/metal = 1 // 1 = aluminum, 2 = iron
 
-/obj/structure/foamedmetal/New()
-	..()
+/obj/structure/foamedmetal/Initialize(mapload)
+	. = ..()
 	update_nearby_tiles(1)
 
 /obj/structure/foamedmetal/Destroy()
-	density = 0
+	density = FALSE
 	update_nearby_tiles(1)
 	return ..()
 
@@ -160,7 +162,7 @@
 	else
 		icon_state = "ironfoam"
 
-/obj/structure/foamedmetal/ex_act(severity)
+/obj/structure/foamedmetal/legacy_ex_act(severity)
 	qdel(src)
 
 /obj/structure/foamedmetal/bullet_act(var/obj/item/projectile/P)

@@ -33,7 +33,7 @@
 	else
 		to_chat(user, "<span class='warning'>The gift was empty!</span>")
 
-/obj/item/a_gift/ex_act()
+/obj/item/a_gift/legacy_ex_act()
 	qdel(src)
 
 /obj/effect/spresent/relaymove(mob/user as mob)
@@ -79,7 +79,7 @@
 		/obj/item/toy/balloon,
 		/obj/item/toy/blink,
 		/obj/item/toy/crossbow,
-		/obj/item/gun/projectile/revolver/capgun,
+		/obj/item/gun/ballistic/revolver/capgun,
 		/obj/item/toy/katana,
 		/obj/item/toy/prize/deathripley,
 		/obj/item/toy/prize/durand,
@@ -131,7 +131,7 @@
 		to_chat(user, "<span class='warning'>The pumpkin was empty!</span>")
 	qdel(src)
 
-/obj/item/b_gift/ex_act()
+/obj/item/b_gift/legacy_ex_act()
 	qdel(src)
 
 /obj/item/b_gift/attack_self(mob/M as mob)
@@ -179,7 +179,7 @@
 		/obj/item/storage/backpack/holding,
 		/obj/item/grenade/smokebomb,
 		/obj/item/toy/crossbow,
-		/obj/item/gun/projectile/revolver/capgun,
+		/obj/item/gun/ballistic/revolver/capgun,
 		/obj/item/toy/katana,
 		/obj/item/toy/sword,
 		/obj/item/storage/belt/utility/full)
@@ -238,15 +238,15 @@
 			to_chat(user, "<span class='warning'>You need scissors!</span>")
 	else
 		to_chat(user, "<span class='warning'>The object is FAR too large!</span>")
-	return
 
 
 /obj/item/wrapping_paper/examine(mob/user)
 	. = ..()
 	. += "There is about [src.amount] square units of paper left!"
 
-/obj/item/wrapping_paper/attack(mob/target as mob, mob/user as mob)
-	if (!istype(target, /mob/living/carbon/human)) return
+/obj/item/wrapping_paper/attack_mob(mob/target, mob/user, clickchain_flags, list/params, mult, target_zone, intent)
+	if (!istype(target, /mob/living/carbon/human))
+		return
 	var/mob/living/carbon/human/H = target
 
 	if (istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket) || H.stat)

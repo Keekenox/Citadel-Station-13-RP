@@ -79,7 +79,7 @@
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
-	visible_message("<span class='warning'>\The [src] has been [I.attack_verb.len ? "[pick(I.attack_verb)]":"attacked"] with \the [I] by [user].</span>")
+	visible_message("<span class='warning'>\The [src] has been [I.get_attack_verb(src, user)] with \the [I] by [user].</span>")
 	take_damage(I.force)
 
 /obj/structure/mob_spawner/bullet_act(var/obj/item/projectile/Proj)
@@ -99,7 +99,7 @@
 	var/turf/T = get_turf(src)
 	if(!T)
 		return 0
-	for(var/mob/living/L in player_list)
+	for(var/mob/living/L in GLOB.player_list)
 		var/turf/L_T
 		if(L.stat == DEAD)
 			continue

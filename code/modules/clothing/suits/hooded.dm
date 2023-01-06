@@ -39,7 +39,7 @@
 /obj/item/clothing/suit/storage/hooded/proc/RemoveHood()
 	icon_state = toggleicon
 	hood_up = FALSE
-	REMOVE_TRAIT(hood, TRAIT_NODROP, CLOTHING_TRAIT)
+	REMOVE_TRAIT(hood, TRAIT_ITEM_NODROP, CLOTHING_TRAIT)
 	hood.forceMove(src)
 	update_worn_icon()
 
@@ -58,15 +58,15 @@
 				to_chat(H, "<span class='warning'>You're already wearing something on your head!</span>")
 				return
 			else
-				if(flags & PHORONGUARD)
-					hood.flags |= PHORONGUARD
+				if(atom_flags & PHORONGUARD)
+					hood.atom_flags |= PHORONGUARD
 				else
-					hood.flags &= ~PHORONGUARD
+					hood.atom_flags &= ~PHORONGUARD
 				H.equip_to_slot_if_possible(hood, SLOT_ID_HEAD)
 				if(armor)
 					hood.armor = armor.Copy()
 				hood_up = TRUE
-				ADD_TRAIT(hood, TRAIT_NODROP, CLOTHING_TRAIT)
+				ADD_TRAIT(hood, TRAIT_ITEM_NODROP, CLOTHING_TRAIT)
 				icon_state = "[toggleicon]-t"
 				update_worn_icon()
 	else
@@ -128,7 +128,7 @@
 	icon_state = "coatwinter"
 	item_state_slots = list(SLOT_ID_RIGHT_HAND = "coatwinter", SLOT_ID_LEFT_HAND = "coatwinter")
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	flags = PHORONGUARD
+	atom_flags = PHORONGUARD
 	flags_inv = HIDEHOLSTER
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
@@ -158,7 +158,7 @@
 	hoodtype = /obj/item/clothing/head/hood/winter/captain
 	allowed =  list (/obj/item/pen, /obj/item/paper, /obj/item/flashlight,/obj/item/tank/emergency/oxygen, /obj/item/storage/fancy/cigarettes,
 	/obj/item/storage/box/matches, /obj/item/reagent_containers/food/drinks/flask, /obj/item/suit_cooling_unit, /obj/item/gun/energy,
-	/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,
+	/obj/item/reagent_containers/spray/pepper,/obj/item/gun/ballistic,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,
 	/obj/item/handcuffs,/obj/item/clothing/head/helmet)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/captain/hop
@@ -177,7 +177,7 @@
 	hoodtype = /obj/item/clothing/head/hood/winter/security
 	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/flashlight,/obj/item/tank/emergency/oxygen, /obj/item/storage/fancy/cigarettes,
 	/obj/item/storage/box/matches, /obj/item/reagent_containers/food/drinks/flask, /obj/item/suit_cooling_unit, /obj/item/gun/energy,
-	/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,
+	/obj/item/reagent_containers/spray/pepper,/obj/item/gun/ballistic,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,
 	/obj/item/handcuffs,/obj/item/clothing/head/helmet)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/security/hos
@@ -428,7 +428,7 @@
 	desc = "An armoured suit for exploring harsh environments."
 	icon_state = "explorer"
 	item_state = "explorer"
-	flags = PHORONGUARD
+	atom_flags = PHORONGUARD
 	clothing_flags = THICKMATERIAL
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
@@ -445,7 +445,7 @@
 		/obj/item/tank,
 		/obj/item/radio,
 		/obj/item/pickaxe,
-		/obj/item/gun/projectile/sec/flash
+		/obj/item/gun/ballistic/sec/flash
 		)
 
 /obj/item/clothing/suit/storage/hooded/miner
@@ -453,7 +453,7 @@
 	desc = "An armoured suit for mining in harsh environments."
 	icon = 'icons/clothing/suit/mining.dmi'
 	icon_state = "miner"
-	flags = PHORONGUARD
+	atom_flags = PHORONGUARD
 	worn_render_flags = WORN_RENDER_SLOT_ONE_FOR_ALL
 	clothing_flags = THICKMATERIAL
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
@@ -461,14 +461,18 @@
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	hoodtype = /obj/item/clothing/head/hood/miner
 	siemens_coefficient = 0.9
-	armor = list(melee = 50, bullet = 5, laser = 10, energy = 0, bomb = 35, bio = 50, rad = 65)
+	armor = list(melee = 50, bullet = 5, laser = 10, energy = 0, bomb = 55, bio = 50, rad = 65)
 	allowed = list(
 		/obj/item/flashlight,
 		/obj/item/material/knife,
 		/obj/item/tank,
 		/obj/item/radio,
 		/obj/item/suit_cooling_unit,
-		/obj/item/pickaxe
+		/obj/item/pickaxe,
+		/obj/item/gun/energy/kinetic_accelerator,
+		/obj/item/kinetic_crusher,
+		/obj/item/resonator,
+		/obj/item/gun/magnetic/matfed
 		)
 
 //The Chippin' In Set -Cap
@@ -485,7 +489,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
 	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/flashlight,/obj/item/tank/emergency/oxygen, /obj/item/storage/fancy/cigarettes,
 	/obj/item/storage/box/matches, /obj/item/reagent_containers/food/drinks/flask, /obj/item/suit_cooling_unit, /obj/item/gun/energy,
-	/obj/item/gun/projectile, /obj/item/ammo_magazine, /obj/item/melee/baton)
+	/obj/item/gun/ballistic, /obj/item/ammo_magazine, /obj/item/melee/baton)
 
 /obj/item/clothing/suit/storage/hooded/runner
 	name = "Runner Jacket"
@@ -499,7 +503,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
 	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/flashlight,/obj/item/tank/emergency/oxygen, /obj/item/storage/fancy/cigarettes,
 	/obj/item/storage/box/matches, /obj/item/reagent_containers/food/drinks/flask, /obj/item/suit_cooling_unit, /obj/item/gun/energy,
-	/obj/item/gun/projectile, /obj/item/ammo_magazine, /obj/item/melee/baton)
+	/obj/item/gun/ballistic, /obj/item/ammo_magazine, /obj/item/melee/baton)
 
 /obj/item/clothing/suit/storage/hooded/runner/half_pint
 	name = "Half-Pint Jacket"

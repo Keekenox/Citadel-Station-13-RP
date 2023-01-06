@@ -323,30 +323,35 @@
 
 // update the icon & overlays to reflect mode & status
 /obj/machinery/disposal/proc/update()
-	overlays.Cut()
+	cut_overlays()
 	if(machine_stat & BROKEN)
 		icon_state = "disposal-broken"
 		mode = 0
 		flush = 0
 		return
 
+	var/list/overlays_to_add = list()
+
 	// flush handle
 	if(flush)
-		overlays += image('icons/obj/pipes/disposal.dmi', "dispover-handle")
+		overlays_to_add += image('icons/obj/pipes/disposal.dmi', "dispover-handle")
 
 	// only handle is shown if no power
 	if(machine_stat & NOPOWER || mode == -1)
+		add_overlay(overlays_to_add)
 		return
 
 	// 	check for items in disposal - occupied light
 	if(contents.len > 0)
-		overlays += image('icons/obj/pipes/disposal.dmi', "dispover-full")
+		overlays_to_add += image('icons/obj/pipes/disposal.dmi', "dispover-full")
 
 	// charging and ready light
 	if(mode == 1)
-		overlays += image('icons/obj/pipes/disposal.dmi', "dispover-charge")
+		overlays_to_add += image('icons/obj/pipes/disposal.dmi', "dispover-charge")
 	else if(mode == 2)
-		overlays += image('icons/obj/pipes/disposal.dmi', "dispover-ready")
+		overlays_to_add += image('icons/obj/pipes/disposal.dmi', "dispover-ready")
+
+	add_overlay(overlays_to_add)
 
 // timed process
 // charge the gas reservoir and perform flush if ready
@@ -664,7 +669,7 @@
 	var/dpdir = 0		// bitmask of pipe directions
 	dir = 0				// dir will contain dominant direction for junction pipes
 	var/health = 10 	// health points 0-10
-	plane = PLATING_PLANE
+	plane = TURF_PLANE
 	layer = DISPOSAL_LAYER	// slightly lower than wires and other pipes
 	base_icon_state	// initial icon state on map
 	var/sortType = ""
@@ -846,7 +851,7 @@
 
 
 // pipe affected by explosion
-/obj/structure/disposalpipe/ex_act(severity)
+/obj/structure/disposalpipe/legacy_ex_act(severity)
 
 	switch(severity)
 		if(1.0)
@@ -1443,16 +1448,11 @@
 	var/turf/target	// this will be where the output objects are 'thrown' to.
 	var/mode = 0
 
-/obj/structure/disposaloutlet/New()
-	..()
-
-	spawn(1)
-		target = get_ranged_target_turf(src, dir, 10)
-
-
-		var/obj/structure/disposalpipe/trunk/trunk = locate() in src.loc
-		if(trunk)
-			trunk.linked = src	// link the pipe trunk to self
+/obj/structure/disposaloutlet/LateInitialize()
+	target = get_ranged_target_turf(src, dir, 10)
+	var/obj/structure/disposalpipe/trunk/trunk = locate() in loc
+	if(trunk)
+		trunk.linked = src	// link the pipe trunk to self
 
 // expel the contents of the holder object, then delete it
 // called when the holder exits the outlet

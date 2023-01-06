@@ -24733,10 +24733,6 @@
 	pixel_x = 10;
 	pixel_y = 14
 	},
-/obj/item/storage/box/body_record_disk{
-	pixel_x = -3;
-	pixel_y = -3
-	},
 /turf/simulated/floor/tiled/white,
 /area/tether/surfacebase/medical/lobby)
 "aTL" = (
@@ -29700,8 +29696,8 @@
 	name = "east bump";
 	pixel_x = 28
 	},
-/obj/item/gun/projectile/revolver/capgun,
-/obj/item/gun/projectile/revolver/capgun,
+/obj/item/gun/ballistic/revolver/capgun,
+/obj/item/gun/ballistic/revolver/capgun,
 /obj/item/toy/cultsword,
 /obj/item/toy/cultsword,
 /obj/item/bikehorn/rubberducky,
@@ -30424,7 +30420,7 @@
 	},
 /obj/structure/table/woodentable,
 /obj/item/storage/box/beanbags,
-/obj/item/gun/projectile/shotgun/doublebarrel,
+/obj/item/gun/ballistic/shotgun/doublebarrel,
 /obj/item/paper{
 	info = "This permit signifies that the Bartender is permitted to posess this firearm in the bar, and ONLY the bar. Failure to adhere to this permit will result in confiscation of the weapon and possibly arrest.";
 	name = "Shotgun permit"
@@ -32786,7 +32782,6 @@
 	name = "Body Designer Note"
 	},
 /obj/item/sleevemate,
-/obj/item/storage/box/body_record_disk,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -32826,9 +32821,6 @@
 /turf/simulated/floor/tiled/white,
 /area/tether/surfacebase/medical/admin)
 "bke" = (
-/obj/machinery/computer/transhuman/designer{
-	dir = 8
-	},
 /obj/effect/floor_decal/borderfloorwhite{
 	dir = 4
 	},

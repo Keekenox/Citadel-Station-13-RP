@@ -8,10 +8,11 @@
 	tim_sort(., /proc/cmp_name_asc)
 
 /datum/outfit
+	/// Abstract type - set to self type for abstract outfits.
+	abstract_type = /datum/outfit
+
 	/// the outfit's name
 	var/name = "Naked"
-	/// abstract type - set to self type for abstract outfits.
-	var/abstract_type = /datum/outfit
 
 	var/uniform = null
 	var/suit = null
@@ -186,7 +187,7 @@
 	l_pocket = /obj/item/ammo_magazine/m95
 	l_hand = /obj/item/ammo_magazine/m95
 	r_hand = /obj/item/ammo_magazine/m95
-	back = /obj/item/gun/projectile/automatic/battlerifle
+	back = /obj/item/gun/ballistic/automatic/battlerifle
 	backpack_contents = list(/obj/item/storage/box = 1)
 	abstract_type = /datum/outfit/wizard
 	head = /obj/item/clothing/head/helmet/combat/JSDF
@@ -207,7 +208,7 @@
 	shoes = /obj/item/clothing/shoes/boots/jackboots
 	uniform = /obj/item/clothing/under/oricon/mildress/marine/command
 	back = /obj/item/storage/backpack/satchel
-	belt = /obj/item/gun/projectile/revolver/consul
+	belt = /obj/item/gun/ballistic/revolver/consul
 	l_pocket = /obj/item/ammo_magazine/s44
 	r_pocket = /obj/item/ammo_magazine/s44
 	r_hand = /obj/item/clothing/accessory/holster/hip

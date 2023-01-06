@@ -51,7 +51,7 @@
 	var/health = 300
 	/// Maxhealth is maxhealth.
 	var/maxhealth = 300
-	/// Chance to deflect the incoming projectiles, hits, or lesser the effect of ex_act.
+	/// Chance to deflect the incoming projectiles, hits, or lesser the effect of legacy_ex_act.
 	var/deflect_chance = 10
 	/// The values in this list show how much damage will pass through, not how much will be absorbed.
 	var/list/damage_absorption = list(
@@ -789,16 +789,7 @@
 		var/result = TRUE
 
 		for(var/turf/T in locs)
-			if(!T.CanZPass(src,direction))
-				occupant_message("<span class='warning'>You can't move that direction from here!</span>")
-				result = FALSE
-				break
-			var/turf/dest = direction & UP ? GetAbove(T) : GetBelow(T)
-			if(!dest)
-				occupant_message("<span class='notice'>There is nothing of interest in this direction.</span>")
-				result = FALSE
-				break
-			if(!dest.CanZPass(src,direction))
+			if(!T.z_exit_check(src, direction))
 				occupant_message("<span class='warning'>There's something blocking your movement in that direction!</span>")
 				result = FALSE
 				break
@@ -846,7 +837,7 @@
 /obj/mecha/proc/mechstep(direction)
 	var/current_dir = dir	//For strafing
 	var/result = get_step(src,direction)
-	if(result && Move(result))
+	if(result && Move(result, direction))
 		if(stomp_sound)
 			playsound(src,stomp_sound,40,1)
 		handle_equipment_movement()
@@ -1216,7 +1207,7 @@
 			var/hit_occupant = 1 //only allow the occupant to be hit once
 			for(var/i in 1 to min(Proj.penetrating, round(Proj.damage/15)))
 				if(src.occupant && hit_occupant && prob(20))
-					Proj.attack_mob(src.occupant, distance)
+					Proj.projectile_attack_mob(src.occupant, distance)
 					hit_occupant = 0
 				else
 					if(pass_damage > internal_damage_minimum)	//Only decently painful attacks trigger a chance of mech damage.
@@ -1231,7 +1222,7 @@
 	return
 
 //This refer to whenever you are caught in an explosion.
-/obj/mecha/ex_act(severity)
+/obj/mecha/legacy_ex_act(severity)
 	var/obj/item/mecha_parts/component/armor/ArmC = internal_components[MECH_ARMOR]
 
 	var/temp_deflect_chance = deflect_chance

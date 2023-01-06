@@ -123,8 +123,8 @@ var/list/flooring_cache = list()
 		actual = state
 	else if("[state]-edge" in states)
 		actual = "[state]-edge"
-	var/image/I = image('icons/turf/outdoors_edge.dmi', icon_state = actual, layer = ABOVE_TURF_LAYER, dir = turn(dir, 180))
-	I.plane = FLOAT_PLANE
+	var/image/I = image('icons/turf/outdoors_edge.dmi', icon_state = actual, layer = TURF_DETAIL_LAYER, dir = turn(dir, 180))
+	// I.layer = flooring.decal_layer
 	switch(dir)
 		if(NORTH)
 			I.pixel_y = 32
@@ -141,7 +141,7 @@ var/list/flooring_cache = list()
 
 //Tests whether this flooring will smooth with the specified turf
 //You can override this if you want a flooring to have super special snowflake smoothing behaviour
-/decl/flooring/proc/test_link(var/turf/origin, var/turf/T, var/countercheck = FALSE)
+/singleton/flooring/proc/test_link(var/turf/origin, var/turf/T, var/countercheck = FALSE)
 
 	var/is_linked = FALSE
 	if (countercheck)

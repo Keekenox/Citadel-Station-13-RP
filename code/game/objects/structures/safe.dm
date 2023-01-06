@@ -161,7 +161,7 @@ FLOOR SAFES
 			return
 
 
-/obj/structure/safe/ex_act(severity)
+/obj/structure/safe/legacy_ex_act(severity)
 	return
 
 //FLOOR SAFES
@@ -171,7 +171,7 @@ FLOOR SAFES
 	density = 0
 	level = 1	//underfloor
 	plane = TURF_PLANE
-	layer = ABOVE_UTILITY
+	layer = BELOW_TURF_LAYER
 
 /obj/structure/safe/floor/Initialize(mapload)
 	. = ..()

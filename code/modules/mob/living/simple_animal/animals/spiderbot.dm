@@ -64,7 +64,7 @@
 /mob/living/simple_mob/spiderbot/Initialize(mapload)
 	. = ..()
 	add_language(LANGUAGE_GALCOM)
-	default_language = GLOB.all_languages[LANGUAGE_GALCOM]
+	default_language = SScharacters.resolve_language_name(LANGUAGE_GALCOM)
 	verbs |= /mob/living/proc/ventcrawl
 	verbs |= /mob/living/proc/hide
 
@@ -81,7 +81,7 @@
 		if(!B.brainmob.key)
 			var/ghost_can_reenter = 0
 			if(B.brainmob.mind)
-				for(var/mob/observer/dead/G in player_list)
+				for(var/mob/observer/dead/G in GLOB.player_list)
 					if(G.can_reenter_corpse && G.mind == B.brainmob.mind)
 						ghost_can_reenter = 1
 						break
@@ -150,7 +150,7 @@
 			return 0
 
 	else
-		O.attack(src, user, user.zone_sel.selecting)
+		O.melee_attack_chain(src, user, user.zone_sel.selecting)
 
 /mob/living/simple_mob/spiderbot/emag_act(var/remaining_charges, var/mob/user)
 	if (emagged)

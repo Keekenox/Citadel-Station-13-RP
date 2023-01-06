@@ -1,8 +1,14 @@
 /proc/count_drones()
 	var/drones = 0
-	for(var/mob/living/silicon/robot/drone/D in player_list)
+	for(var/mob/living/silicon/robot/drone/D in GLOB.player_list)
 		drones++
 	return drones
+
+/proc/count_matriarchs()
+	var/matriarchs = 0
+	for(var/mob/living/silicon/robot/drone/construction/matriarch/M in GLOB.player_list)
+		matriarchs++
+	return matriarchs
 
 /obj/machinery/drone_fabricator
 	name = "drone fabricator"
@@ -36,6 +42,11 @@
 	name = "mining drone fabricator"
 	fabricator_tag = "Upper Level Mining"
 	drone_type = /mob/living/silicon/robot/drone/mining
+
+/obj/machinery/drone_fabricator/matriarch
+	name = "matriarch drone fabricator"
+	fabricator_tag = "Upper Level Matriarch"
+	drone_type = /mob/living/silicon/robot/drone/construction/matriarch
 
 /obj/machinery/drone_fabricator/update_icon_state()
 	. = ..()
@@ -86,6 +97,9 @@
 	if(!produce_drones || !config_legacy.allow_drone_spawn || count_drones() >= config_legacy.max_maint_drones)
 		return
 
+	if((drone_type == /mob/living/silicon/robot/drone/construction/matriarch) && (count_matriarchs() > 0))
+		return
+
 	if(player && !istype(player.mob,/mob/observer/dead))
 		return
 
@@ -100,6 +114,7 @@
 		announce_ghost_joinleave(player, 0, "They have taken control over a maintenance drone.")
 		if(player.mob && player.mob.mind) player.mob.mind.reset()
 		new_drone.transfer_personality(player)
+		assign_drone_to_matrix(new_drone, "[GLOB.using_map.company_name]")
 
 	return new_drone
 

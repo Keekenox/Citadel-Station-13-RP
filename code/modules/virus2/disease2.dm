@@ -49,7 +49,7 @@
 	var/list/meat = list()
 	var/list/res = list()
 
-	var/list/species_cache = all_static_species_meta()
+	var/list/species_cache = SScharacters.all_static_species_meta()
 	for(var/datum/species/S in species_cache)
 		if(S.get_virus_immune())
 			continue
@@ -82,7 +82,7 @@
 		cure(mob)
 		return
 
-	if(mob.radiation > 50)
+	if(mob.radiation > RAD_VIRUS_MUTATE)
 		if(prob(1))
 			majormutate()
 
@@ -284,7 +284,7 @@ var/global/list/virusDB = list()
 /proc/virus2_lesser_infection()
 	var/list/candidates = list()	//list of candidate keys
 
-	for(var/mob/living/carbon/human/G in player_list)
+	for(var/mob/living/carbon/human/G in GLOB.player_list)
 		if(G.client && G.stat != DEAD)
 			candidates += G
 
@@ -297,7 +297,7 @@ var/global/list/virusDB = list()
 /proc/virus2_greater_infection()
 	var/list/candidates = list()	//list of candidate keys
 
-	for(var/mob/living/carbon/human/G in player_list)
+	for(var/mob/living/carbon/human/G in GLOB.player_list)
 		if(G.client && G.stat != DEAD)
 			candidates += G
 	if(!candidates.len)	return

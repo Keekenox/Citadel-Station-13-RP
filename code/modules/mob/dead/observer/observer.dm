@@ -16,6 +16,7 @@
 	blinded = FALSE
 	anchored = TRUE
 	invisibility = INVISIBILITY_OBSERVER
+	SET_APPEARANCE_FLAGS(PIXEL_SCALE | KEEP_TOGETHER)
 	/// Do we set dir on move
 	var/updatedir = TRUE
 	var/can_reenter_corpse
@@ -135,7 +136,7 @@
 		mind = body.mind	//we don't transfer the mind but we keep a reference to it.
 
 	if(!T)
-		T = SSjob.GetLatejoinSpawnpoint()
+		T = SSjob.get_latejoin_spawnpoint()
 	forceMove(T)
 
 	for(var/v in GLOB.active_alternate_appearances)
@@ -267,7 +268,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/observer/dead/verb/reenter_corpse()
 	set category = "Ghost"
 	set name = "Re-enter Corpse"
-	if(!client)	return
+	if(!client)
+		return
 	if(!(mind && mind.current && can_reenter_corpse))
 		to_chat(src, "<span class='warning'>You have no body.</span>")
 		return
@@ -467,16 +469,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			to_chat(src, "<font color=#4F49AF>[GLOB.meta_gas_names[g]]: [round((environment.gas[g] / total_moles) * 100)]% ([round(environment.gas[g], 0.01)] moles)</font>")
 		to_chat(src, "<font color=#4F49AF>Temperature: [round(environment.temperature-T0C,0.1)]&deg;C ([round(environment.temperature,0.1)]K)</font>")
 		to_chat(src, "<font color=#4F49AF>Heat Capacity: [round(environment.heat_capacity(),0.1)]</font>")
-
-/mob/observer/dead/verb/check_radiation()
-	set name = "Check Radiation"
-	set category = "Ghost"
-
-	var/turf/t = get_turf(src)
-	if(t)
-		var/rads = SSradiation.get_rads_at_turf(t)
-		to_chat(src, "<span class='notice'>Radiation level: [rads ? rads : "0"] Bq.</span>")
-
 
 /mob/observer/dead/verb/become_mouse()
 	set name = "Become mouse"
@@ -687,7 +679,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set desc = "Toggles showing your key in dead chat."
 
 	client.toggle_preference(/datum/client_preference/anonymous_ghost_chat)
-	SScharacter_setup.queue_preferences_save(client.prefs)
+	SScharacters.queue_preferences_save(client.prefs)
 	if(is_preference_enabled(/datum/client_preference/anonymous_ghost_chat))
 		to_chat(src, "<span class='info'>Your key won't be shown when you speak in dead chat.</span>")
 	else
@@ -787,7 +779,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 		if(choice)
 			icon = 'icons/mob/ghost.dmi'
-			overlays.Cut()
+			cut_overlays()
 
 			if(icon_state && icon)
 				previous_state = icon_state
@@ -818,9 +810,9 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			if(PP.pai == null)
 				count++
 				PP.icon = 'icons/obj/pda_vr.dmi'
-				PP.overlays += "pai-ghostalert"
+				PP.add_overlay("pai-ghostalert")
 				spawn(54)
-					PP.overlays.Cut()
+					PP.cut_overlays()
 		to_chat(usr,"<span class='notice'>Flashing the displays of [count] unoccupied PAIs.</span>")
 	else
 		to_chat(usr,"<span class='warning'>You have 'Be pAI' disabled in your character prefs, so we can't help you.</span>")
@@ -848,3 +840,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	var/datum/perspective/P = ..()
 	P.SetSight(SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF)
 	P.SetSeeInvis(SEE_INVISIBLE_OBSERVER)
+
+/mob/dead/observer/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
+	return isAdminGhostAI(usr)

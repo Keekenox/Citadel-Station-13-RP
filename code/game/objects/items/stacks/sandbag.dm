@@ -108,8 +108,8 @@ var/global/list/datum/stack_recipe/sandbags_recipes = list( \
 	density = TRUE
 	pass_flags_self = ATOM_PASS_TABLE | ATOM_PASS_THROWN | ATOM_PASS_CLICK
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_SANDBAGS)
-	canSmoothWith = list(SMOOTH_GROUP_SANDBAGS)
+	smoothing_groups = (SMOOTH_GROUP_SANDBAGS)
+	canSmoothWith = (SMOOTH_GROUP_SANDBAGS)
 	var/health = 100
 	var/maxhealth = 100
 	var/vestigial = TRUE
@@ -197,7 +197,7 @@ var/global/list/datum/stack_recipe/sandbags_recipes = list( \
 	//Make it drop materials? I dunno. For now it just disappears.
 	return
 
-/obj/structure/sandbag/ex_act(severity)
+/obj/structure/sandbag/legacy_ex_act(severity)
 	switch(severity)
 		if(1.0)
 			dismantle()

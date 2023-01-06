@@ -16,7 +16,7 @@
 	var/weapon_sharp = is_sharp(I)
 	var/weapon_edge = has_edge(I)
 	var/hit_embed_chance = I.embed_chance
-	if(prob(getarmor(hit_zone, "melee"))) //melee armour provides a chance to turn sharp/edge weapon attacks into blunt ones
+	if(prob(run_mob_armor(hit_zone, "melee"))) //melee armour provides a chance to turn sharp/edge weapon attacks into blunt ones
 		weapon_sharp = 0
 		weapon_edge = 0
 		hit_embed_chance = I.force/(I.w_class*3)
@@ -55,7 +55,7 @@
 	if(status_flags & GODMODE)
 		return 0	//godmode
 	if(def_zone == "l_hand" || def_zone == "r_hand") //Diona (And any other potential plant people) hands don't get shocked.
-		if(species.flags & IS_PLANT)
+		if(species.species_flags & IS_PLANT)
 			return 0
 	shock_damage *= siemens_coeff
 	if (shock_damage<1)

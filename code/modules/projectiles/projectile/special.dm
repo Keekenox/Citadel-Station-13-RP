@@ -105,7 +105,7 @@
 	if(A == firer)
 		return
 
-	A.ex_act(2)
+	LEGACY_EX_ACT(A, 2, null)
 	playsound(src.loc, 'sound/effects/meteorimpact.ogg', 40, 1)
 
 	for(var/mob/M in range(10, src))
@@ -137,9 +137,10 @@
 	var/mob/living/M = target
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = M
-		if((H.species.flags & IS_PLANT) && (M.nutrition < 500))
+		if((H.species.species_flags & IS_PLANT) && (M.nutrition < 500))
 			if(prob(15))
-				M.apply_effect((rand(30,80)),IRRADIATE)
+				// todo: less stunlock capability
+				M.afflict_radiation(RAD_MOB_AFFLICT_FLORARAY_ON_PLANT, TRUE)
 				M.Weaken(5)
 				var/datum/gender/TM = GLOB.gender_datums[M.get_visible_gender()]
 				for (var/mob/V in viewers(src))
@@ -173,7 +174,7 @@
 	damage_type = TOX
 	nodamage = 1
 	check_armour = "energy"
-	var/decl/plantgene/gene = null
+	var/singleton/plantgene/gene = null
 
 /obj/item/projectile/energy/florayield
 	name = "beta somatoray"
@@ -191,7 +192,7 @@
 	var/mob/M = target
 	if(ishuman(target)) //These rays make plantmen fat.
 		var/mob/living/carbon/human/H = M
-		if((H.species.flags & IS_PLANT) && (M.nutrition < 500))
+		if((H.species.species_flags & IS_PLANT) && (M.nutrition < 500))
 			M.nutrition += 30
 	else if (istype(target, /mob/living/carbon/))
 		M.show_message("<font color=#4F49AF>The radiation beam dissipates harmlessly through your body.</font>")
@@ -278,7 +279,7 @@
 		if(ishuman(L))
 			var/mob/living/carbon/human/H = L
 
-			var/target_armor = H.getarmor(def_zone, check_armour)
+			var/target_armor = H.run_mob_armor(def_zone, check_armour)
 			var/obj/item/organ/external/target_limb = H.get_organ(def_zone)
 
 			var/armor_special = 0

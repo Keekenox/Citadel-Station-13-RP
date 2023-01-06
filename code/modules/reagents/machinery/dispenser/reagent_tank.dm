@@ -55,7 +55,7 @@
 	if (N)
 		amount_per_transfer_from_this = N
 
-/obj/structure/reagent_dispensers/ex_act(severity)
+/obj/structure/reagent_dispensers/legacy_ex_act(severity)
 	switch(severity)
 		if(1.0)
 			qdel(src)
@@ -158,7 +158,7 @@
 			usr.visible_message("<span class='notice'>[usr] detaches [rig] from \the [src].</span>", "<span class='notice'>You detach [rig] from \the [src]</span>")
 			rig.loc = get_turf(usr)
 			rig = null
-			overlays = new/list()
+			cut_overlays()
 
 /obj/structure/reagent_dispensers/fueltank/attackby(obj/item/W as obj, mob/user as mob)
 	src.add_fingerprint(user)
@@ -192,7 +192,7 @@
 			var/icon/test = get_flat_icon(W)
 			test.Shift(NORTH,1)
 			test.Shift(EAST,6)
-			overlays += test
+			add_overlay(test)
 
 	return ..()
 
@@ -206,7 +206,7 @@
 		if(!istype(Proj ,/obj/item/projectile/beam/lasertag) && !istype(Proj ,/obj/item/projectile/beam/practice) )
 			explode()
 
-/obj/structure/reagent_dispensers/fueltank/ex_act()
+/obj/structure/reagent_dispensers/fueltank/legacy_ex_act()
 	explode()
 
 /obj/structure/reagent_dispensers/fueltank/blob_act()
@@ -388,11 +388,11 @@
 
 /obj/structure/reagent_dispensers/water_cooler/update_icon()
 	icon_state = "water_cooler"
-	overlays.Cut()
+	cut_overlays()
 	var/image/I
 	if(bottle)
 		I = image(icon, "water_cooler_bottle")
-		overlays += I
+		add_overlay(I)
 	return
 
 /obj/structure/reagent_dispensers/beerkeg
@@ -454,7 +454,7 @@
 	if(Proj.get_structure_damage())
 		explode()
 
-/obj/structure/reagent_dispensers/cookingoil/ex_act()
+/obj/structure/reagent_dispensers/cookingoil/legacy_ex_act()
 	explode()
 
 /obj/structure/reagent_dispensers/cookingoil/proc/explode()

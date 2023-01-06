@@ -32,7 +32,7 @@
 	//Get the DNA and generate a new mob
 	var/datum/dna2/record/R = current_project.mydna
 	var/mob/living/carbon/human/H = new /mob/living/carbon/human(src)
-	H.set_species(species_type_by_name(R.dna.species))
+	H.set_species(R.dna.species)
 	H.dna.base_species = R.dna.base_species //! Hacky way to get the DNA to work.
 	if(current_project.locked)
 		H.resleeve_lock = current_project.ckey
@@ -93,7 +93,7 @@
 
 	//Apply damage
 	H.adjustCloneLoss((H.getMaxHealth() - config_legacy.health_threshold_dead)*-0.75)
-	H.Paralyse(4)
+	H.Unconscious(4)
 	H.updatehealth()
 
 	//Grower specific mutations

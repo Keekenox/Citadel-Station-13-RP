@@ -397,9 +397,13 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 	if (config_legacy.log_debug)
 		WRITE_LOG(GLOB.world_runtime_log, "DEBUG: [text]")
 
-	for(var/client/C in admins)
+	for(var/client/C in GLOB.admins)
 		if(C.is_preference_enabled(/datum/client_preference/debug/show_debug_logs))
-			to_chat(C, "DEBUG: [text]")
+			to_chat(C,
+				type = MESSAGE_TYPE_DEBUG,
+				html = "DEBUG: [text]",
+				confidential = TRUE,
+			)
 
 /proc/log_ghostsay(text, mob/speaker)
 	if (config_legacy.log_say)
@@ -437,8 +441,8 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 /proc/log_unit_test(text)
 	log_world("## UNIT_TEST: [text]")
 
-/proc/report_progress(var/progress_message)
-	admin_notice("<span class='boldannounce'>[progress_message]</span>", R_DEBUG)
+/proc/report_progress(progress_message)
+	admin_notice(SPAN_BOLDANNOUNCE("[progress_message]"), R_DEBUG)
 	log_world(progress_message)
 
 /proc/log_nsay(text, inside, mob/speaker)

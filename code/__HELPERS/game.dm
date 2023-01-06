@@ -88,7 +88,7 @@
 	var/i = 0
 	while(i < length(processing))
 		var/atom/A = processing[++i]
-		if(A.flags & HEAR)
+		if(A.atom_flags & ATOM_HEAR)
 			. += A
 			SEND_SIGNAL(A, COMSIG_ATOM_HEARER_IN_VIEW, processing, .)
 		processing += A.contents
@@ -278,8 +278,8 @@
 
 
 	// Try to find all the players who can hear the message
-	for(var/i = 1; i <= player_list.len; i++)
-		var/mob/M = player_list[i]
+	for(var/i = 1; i <= GLOB.player_list.len; i++)
+		var/mob/M = GLOB.player_list[i]
 		if(M)
 			var/turf/ear = get_turf(M)
 			if(ear)
@@ -298,23 +298,23 @@
 	var/list/mobs = list()
 	var/list/objs = list()
 
-	var/list/hear = dview(range,T,INVISIBILITY_MAXIMUM)
+	var/list/hear = list()
+	DVIEW(hear, range, T, INVISIBILITY_MAXIMUM)
 	var/list/hearturfs = list()
 
-	for(var/thing in hear)
-		// Can't use isobj() because /atom/movable returns true in that, and so lighting overlays would be included.
-		if(istype(thing, /obj))
-			objs += thing
-			hearturfs |= get_turf(thing)
-		if(ismob(thing))
-			mobs += thing
-			hearturfs |= get_turf(thing)
+	for(var/atom/movable/AM in hear)
+		if(ismob(AM))
+			mobs += AM
+			hearturfs += get_turf(AM)
+		else if(isobj(AM))
+			objs += AM
+			hearturfs += get_turf(AM)
 
 	// A list of every mob with a client.
-	for(var/mob in player_list)
+	for(var/mob in GLOB.player_list)
 		if(!ismob(mob))
-			player_list -= mob
-			crash_with("There is a null or non-mob reference inside player_list ([mob]).")
+			GLOB.player_list -= mob
+			crash_with("There is a null or non-mob reference inside GLOB.player_list ([mob]).")
 			continue
 		if(get_turf(mob) in hearturfs)
 			mobs |= mob
@@ -333,9 +333,9 @@
 						mobs |= M
 
 	// For objects below the top level who still want to hear.
-	for(var/obj in listening_objects)
-		if(get_turf(obj) in hearturfs)
-			objs |= obj
+	for(var/obj/O in global.listening_objects)
+		if(get_turf(O) in hearturfs)
+			objs |= O
 
 	return list("mobs" = mobs, "objs" = objs)
 
@@ -368,26 +368,6 @@
 			if(T.opacity)
 				return FALSE
 	return TRUE
-
-/proc/flick_overlay(image/I, list/show_to, duration, gc_after)
-	for(var/client/C in show_to)
-		C.images += I
-	spawn(duration)
-		if(gc_after)
-			qdel(I)
-		for(var/client/C in show_to)
-			C.images -= I
-
-/**
- * Wrapper for flick_overlay, flicks to everyone who can see the target atom.
- */
-/proc/flick_overlay_view(image/I, atom/target, duration, gc_after)
-	var/list/viewing = list()
-	for(var/m in viewers(target))
-		var/mob/M = m
-		if(M.client)
-			viewing += M.client
-	flick_overlay(I, viewing, duration, gc_after)
 
 /proc/isInSight(atom/A, atom/B)
 	var/turf/Aturf = get_turf(A)
@@ -434,7 +414,7 @@
 	var/list/candidates = list()
 	var/i = 0
 	while(candidates.len <= 0 && i < 5)
-		for(var/mob/observer/dead/G in player_list)
+		for(var/mob/observer/dead/G in GLOB.player_list)
 			// The most active players are more likely to become an alien.
 			if(((G.client.inactivity/10)/60) <= buffer + i)
 				if(!(G.mind && G.mind.current && G.mind.current.stat != DEAD))
@@ -451,7 +431,7 @@
 	var/list/candidates = list()
 	var/i = 0
 	while(candidates.len <= 0 && i < 5)
-		for(var/mob/observer/dead/G in player_list)
+		for(var/mob/observer/dead/G in GLOB.player_list)
 			if(G.client.prefs.be_special & BE_ALIEN)
 				// The most active players are more likely to become an alien.
 				if(((G.client.inactivity/10)/60) <= ALIEN_SELECT_AFK_BUFFER + i)

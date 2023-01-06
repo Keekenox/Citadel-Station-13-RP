@@ -28,26 +28,26 @@
 	siemens_coefficient = 0.2
 
 /obj/item/clothing/head/helmet/space/rig/breacher
-	species_restricted = list(SPECIES_UNATHI)
+	species_restricted = list(SPECIES_UNATHI, SPECIES_UNATHI_DIGI)
 	force = 5
 
 /obj/item/clothing/suit/space/rig/breacher
-	species_restricted = list(SPECIES_UNATHI)
+	species_restricted = list(SPECIES_UNATHI, SPECIES_UNATHI_DIGI)
 
 /obj/item/clothing/shoes/magboots/rig/breacher
-	species_restricted = list(SPECIES_UNATHI)
+	species_restricted = list(SPECIES_UNATHI, SPECIES_UNATHI_DIGI)
 
 /*
  *	VOX
  */
 
-/obj/item/rig/vox	//Just to get the flags set up
+/obj/item/rig/vox	//Just to get the atom_flags set up
 	name = "alien control module"
 	desc = "This metal box writhes and squirms as if it were alive..."
 	suit_type = "alien"
 	icon_state = "vox_rig"
 	armor = list(melee = 60, bullet = 50, laser = 40, energy = 15, bomb = 30, bio = 100, rad = 50)
-	flags = PHORONGUARD
+	atom_flags = PHORONGUARD
 	clothing_flags = THICKMATERIAL
 	siemens_coefficient = 0.2
 	offline_slowdown = 5

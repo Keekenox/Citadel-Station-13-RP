@@ -11,7 +11,7 @@ var/global/list/weavable_items = list()
 	anchored = TRUE
 	density = FALSE
 
-/obj/effect/weaversilk/ex_act(severity)
+/obj/effect/weaversilk/legacy_ex_act(severity)
 	qdel(src)
 	return
 
@@ -19,7 +19,7 @@ var/global/list/weavable_items = list()
 	user.setClickCooldown(user.get_attack_speed(W))
 
 	if(W.force)
-		visible_message("<span class='warning'>\The [src] has been [LAZYLEN(W.attack_verb) ? pick(W.attack_verb) : "attacked"] with \the [W][(user ? " by [user]." : ".")]</span>")
+		visible_message("<span class='warning'>\The [src] has been [W.get_attack_verb(src, user)] with \the [W][(user ? " by [user]." : ".")]</span>")
 		qdel(src)
 
 /obj/effect/weaversilk/bullet_act(var/obj/item/projectile/Proj)

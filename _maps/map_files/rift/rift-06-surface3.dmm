@@ -301,14 +301,6 @@
 /obj/structure/window/reinforced/polarized/full{
 	id = "hop_office"
 	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "hop_office"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "hop_office"
-	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 8;
@@ -422,15 +414,7 @@
 /turf/simulated/shuttle/wall/voidcraft/blue,
 /area/shuttle/emt/cockpit)
 "aN" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/crew_quarters/kitchen)
 "aO" = (
@@ -951,6 +935,10 @@
 	dir = 4
 	},
 /obj/structure/table/marble,
+/obj/structure/curtain/open/bed{
+	name = "brown curtain";
+	pixel_x = -32
+	},
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bB" = (
@@ -1337,9 +1325,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/office)
 "ck" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/exploration/meeting)
 "cl" = (
@@ -1575,13 +1561,6 @@
 	layer = 3.1;
 	name = "Bridge Lockdown Shutters";
 	opacity = 0
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "bridge_tint"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "bridge_tint"
 	},
 /turf/simulated/floor/plating,
 /area/bridge)
@@ -1841,12 +1820,6 @@
 	},
 /turf/simulated/floor/carpet/blue,
 /area/crew_quarters/captain)
-"do" = (
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 4
-	},
-/turf/simulated/open/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "dp" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/gloves{
@@ -1913,15 +1886,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/bridge_hallway)
-"dt" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "du" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2063,14 +2027,6 @@
 	opacity = 0
 	},
 /obj/structure/window/reinforced/polarized/full{
-	id = "bridge_tint"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "bridge_tint"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
 	id = "bridge_tint"
 	},
 /turf/simulated/floor/plating,
@@ -2591,14 +2547,6 @@
 /obj/structure/window/reinforced/polarized/full{
 	id = "hop_office"
 	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "hop_office"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "hop_office"
-	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 8;
@@ -2713,6 +2661,12 @@
 /obj/structure/table/marble,
 /obj/item/reagent_containers/food/drinks/shaker,
 /obj/item/reagent_containers/glass/rag,
+/obj/item/storage/single_use/med_pouch/overdose,
+/obj/item/storage/single_use/med_pouch/toxin,
+/obj/structure/curtain/open/bed{
+	name = "brown curtain";
+	pixel_x = -32
+	},
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "eL" = (
@@ -2759,6 +2713,9 @@
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/steel,
 /area/hallway/primary/surfacethree)
 "eS" = (
@@ -2862,9 +2819,6 @@
 /turf/simulated/open/lythios43c,
 /area/rift/surfacebase/outside/outside3)
 "fc" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	icon_state = "shutter0";
@@ -2872,13 +2826,10 @@
 	name = "Arrivals Checkpoint Shutter";
 	opacity = 0
 	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/security/checkpoint2)
 "fd" = (
@@ -2909,13 +2860,6 @@
 	},
 /obj/structure/railing,
 /turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
-"fg" = (
-/obj/effect/overlay/snow/floor/pointy,
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
-/turf/simulated/floor/lythios43c/indoors,
 /area/rift/surfacebase/outside/outside3)
 "fh" = (
 /obj/structure/curtain/open,
@@ -2956,12 +2900,6 @@
 /area/rift/surfacebase/outside/outside3)
 "fl" = (
 /obj/structure/ladder,
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/commandmaint)
 "fm" = (
@@ -3031,15 +2969,6 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/exploration/explorer_prep)
 "fs" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 8;
@@ -3049,6 +2978,7 @@
 	name = "Bridge Lockdown Shutters";
 	opacity = 0
 	},
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/bridge)
 "ft" = (
@@ -3095,7 +3025,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
-	dir = 1;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3121,14 +3050,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
-"fz" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/obj/effect/overlay/snow/floor/pointy,
-/obj/effect/overlay/snow/floor,
-/turf/simulated/floor/lythios43c/indoors,
-/area/rift/surfacebase/outside/outside3)
 "fA" = (
 /obj/effect/floor_decal/borderfloorblack,
 /obj/machinery/light,
@@ -3271,20 +3192,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/primary/surfacethree)
-"fN" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
-/obj/effect/overlay/snow/floor/pointy,
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/obj/effect/overlay/snow/floor,
-/turf/simulated/floor/lythios43c/indoors,
-/area/rift/surfacebase/outside/outside3)
 "fO" = (
 /obj/structure/table/woodentable,
 /obj/structure/flora/pottedplant/minitree{
@@ -3559,16 +3466,6 @@
 "gm" = (
 /turf/simulated/wall/r_wall,
 /area/hallway/secondary/docking_hallway)
-"gn" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/emt/cockpit)
 "go" = (
 /obj/machinery/atmospherics/component/unary/vent_pump/on{
 	dir = 8
@@ -3689,15 +3586,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /turf/simulated/floor,
 /area/shuttle/civvie/general)
-"gz" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/excursion/cockpit)
 "gA" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -3714,29 +3602,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/bridge_hallway)
 "gB" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/obj/effect/overlay/snow/floor/pointy,
 /obj/effect/overlay/snow/floor,
 /turf/simulated/floor/lythios43c/indoors,
 /area/rift/surfacebase/outside/outside3)
 "gC" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/shuttle/emt/cockpit)
 "gD" = (
@@ -3881,15 +3751,6 @@
 	},
 /turf/simulated/floor/tiled/eris/cafe,
 /area/crew_quarters/cafeteria)
-"gS" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 4
-	},
-/turf/simulated/open/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "gT" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4028,13 +3889,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/bridge_hallway)
-"hj" = (
-/obj/structure/catwalk,
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 5
-	},
-/turf/simulated/open/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "hk" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -4173,15 +4027,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
-"hv" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/lythios43c,
-/area/rift/surfaceeva/aa/cliff_north)
 "hw" = (
 /obj/machinery/power/apc{
 	name = "south bump";
@@ -4637,7 +4482,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/bridge_hallway)
 "it" = (
-/obj/effect/overlay/snow/floor/pointy,
 /obj/machinery/power/pointdefense{
 	id_tag = "s3south"
 	},
@@ -4905,11 +4749,11 @@
 "iS" = (
 /obj/machinery/light,
 /obj/structure/table/woodentable,
-/obj/item/storage/mre/random{
+/obj/item/storage/single_use/mre/random{
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/storage/mre/random{
+/obj/item/storage/single_use/mre/random{
 	pixel_x = -2;
 	pixel_y = -2
 	},
@@ -5209,9 +5053,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/exploration)
 "jB" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/crew_quarters/locker/laundry_arrival)
 "jC" = (
@@ -5605,12 +5447,6 @@
 /obj/structure/inflatable,
 /turf/simulated/floor/plating,
 /area/rift/surfaceeva/aa/cliff_north)
-"kk" = (
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "kl" = (
 /obj/effect/floor_decal/borderfloor{
 	dir = 4
@@ -5706,13 +5542,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/office)
 "kw" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/maintenance/bar/lower)
 "kx" = (
@@ -6230,13 +6060,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/ai)
-"lu" = (
-/obj/structure/catwalk,
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 4
-	},
-/turf/simulated/open/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "lv" = (
 /obj/effect/floor_decal/borderfloorblack{
 	dir = 1
@@ -6277,6 +6100,7 @@
 /obj/effect/floor_decal/steeldecal/steel_decals6{
 	dir = 5
 	},
+/obj/item/storage/single_use/med_pouch/burn,
 /turf/simulated/floor/tiled/steel,
 /area/hallway/secondary/docking_hallway)
 "lz" = (
@@ -6316,9 +6140,6 @@
 /turf/simulated/floor/tiled/white,
 /area/bridge/bunker)
 "lD" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
 /obj/structure/railing,
 /obj/machinery/power/pointdefense{
 	id_tag = "s3south"
@@ -6391,18 +6212,7 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/hallway/primary/surfacethree)
-"lN" = (
-/obj/structure/catwalk,
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 6
-	},
-/turf/simulated/open/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "lO" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/obj/effect/overlay/snow/floor/pointy,
 /obj/structure/railing,
 /obj/machinery/light/small{
 	dir = 4
@@ -6653,15 +6463,7 @@
 /turf/simulated/floor/reinforced/lythios43c,
 /area/rift/surfacebase/outside/outside3)
 "mp" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/shuttle/civvie/general)
 "mq" = (
@@ -6900,9 +6702,6 @@
 /turf/simulated/floor/plating,
 /area/rift/trade_shop/landing_pad)
 "mM" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -6911,10 +6710,7 @@
 	name = "Shuttle Blast Doors";
 	opacity = 0
 	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/shuttle/excursion/cargo)
 "mN" = (
@@ -7105,9 +6901,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/shuttle/excursion/cargo)
 "nh" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/bridge/bridge_hallway)
 "ni" = (
@@ -7137,13 +6931,6 @@
 /turf/simulated/floor/wood,
 /area/bridge/bunker)
 "nl" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -7151,6 +6938,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/machinery/atmospherics/pipe/simple/visible/aux,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/shuttle/excursion/general)
 "nm" = (
@@ -7491,14 +7279,16 @@
 /turf/simulated/floor/outdoors/safeice/lythios43c/indoors,
 /area/rift/surfacebase/outside/outside3)
 "nP" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
-/area/exploration/excursion_dock)
+/obj/structure/bed/chair/sofa/black/right,
+/obj/structure/curtain/open/bed{
+	name = "brown curtain";
+	pixel_x = -32
+	},
+/turf/simulated/floor/carpet/turcarpet,
+/area/crew_quarters/bar)
 "nQ" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 1
@@ -7547,9 +7337,7 @@
 /turf/simulated/floor/plating/lythios43c,
 /area/rift/surfacebase/outside/outside3)
 "nV" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced/full,
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/hydroponics)
 "nW" = (
@@ -7701,15 +7489,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/ai)
-"om" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "on" = (
 /obj/effect/floor_decal/techfloor{
 	dir = 6
@@ -7922,15 +7701,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge/bridge_hallway)
 "oL" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/shuttle/emt/general)
 "oM" = (
@@ -8111,12 +7882,6 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/teleporter/departing)
-"pc" = (
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "pd" = (
 /obj/effect/floor_decal/steeldecal/steel_decals10{
 	dir = 4
@@ -8317,15 +8082,6 @@
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/grass,
 /area/hydroponics)
-"px" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "py" = (
 /obj/item/reagent_containers/glass/bucket,
 /obj/effect/floor_decal/borderfloor/cee{
@@ -8385,16 +8141,6 @@
 /obj/structure/fans/tiny,
 /turf/simulated/floor/tiled/old_tile/green,
 /area/shuttle/civvie/general)
-"pF" = (
-/obj/effect/overlay/snow/floor/pointy,
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/lythios43c,
-/area/rift/surfaceeva/aa/cliff_south)
 "pG" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -8453,13 +8199,6 @@
 /obj/effect/floor_decal/borderfloorblack/corner2,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/bridge_hallway)
-"pN" = (
-/obj/effect/overlay/snow/floor/pointy,
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "pO" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -8854,13 +8593,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/bridge/bunker)
-"qD" = (
-/obj/effect/overlay/snow/floor/pointy,
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/lythios43c,
-/area/rift/surfaceeva/aa/cliff_south)
 "qE" = (
 /obj/structure/bed/chair/wood,
 /obj/structure/sign/hydro{
@@ -9055,15 +8787,6 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/hydroponics)
-"qW" = (
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 4
-	},
-/obj/structure/railing{
-	dir = 4
-	},
-/turf/simulated/open/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "qX" = (
 /obj/machinery/pointdefense_control{
 	id_tag = "s3north"
@@ -9101,10 +8824,6 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/exploration/explorer_prep)
 "rd" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/obj/effect/overlay/snow/floor/pointy,
 /obj/structure/railing,
 /turf/simulated/floor/reinforced/lythios43c,
 /area/rift/surfaceeva/aa/cliff_south)
@@ -9196,12 +8915,12 @@
 /obj/structure/closet/crate{
 	name = "MRE crate"
 	},
-/obj/item/storage/mre/random,
-/obj/item/storage/mre/random,
-/obj/item/storage/mre/random,
-/obj/item/storage/mre/random,
-/obj/item/storage/mre/menu9,
-/obj/item/storage/mre/menu10,
+/obj/item/storage/single_use/mre/random,
+/obj/item/storage/single_use/mre/random,
+/obj/item/storage/single_use/mre/random,
+/obj/item/storage/single_use/mre/random,
+/obj/item/storage/single_use/mre/menu9,
+/obj/item/storage/single_use/mre/menu10,
 /turf/simulated/floor/tiled/steel,
 /area/exploration)
 "rn" = (
@@ -9240,18 +8959,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/bar/lower)
 "rs" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/curtain/open/bed{
-	name = "brown curtain"
-	},
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/crew_quarters/bar)
 "rt" = (
@@ -9310,10 +9018,6 @@
 /obj/structure/railing,
 /turf/simulated/floor/reinforced/lythios43c,
 /area/rift/surfacebase/shuttle)
-"rz" = (
-/obj/effect/overlay/snow/floor/pointy,
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "rA" = (
 /obj/machinery/door/airlock/voidcraft/vertical,
 /obj/map_helper/airlock/door/ext_door,
@@ -9365,12 +9069,6 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/emt/general)
 "rC" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -9530,6 +9228,10 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/curtain/open/bed{
+	name = "brown curtain";
+	pixel_x = -32
+	},
 /turf/simulated/floor/carpet/turcarpet,
 /area/crew_quarters/bar)
 "rW" = (
@@ -9597,9 +9299,15 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "sd" = (
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/maintenance/commandmaint)
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/porta_turret/stationary{
+	gl_uid = "exploration";
+	installation = /obj/item/gun/energy/phasegun;
+	name = "exploration turret";
+	uid = "exploration"
+	},
+/turf/simulated/floor/tiled/techfloor/grid/lythios43c,
+/area/shuttle/excursion/general)
 "se" = (
 /obj/machinery/door/firedoor/glass/hidden,
 /obj/structure/disposalpipe/segment{
@@ -10075,10 +9783,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar_backroom)
 "tc" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced,
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/exploration/excursion_dock)
 "td" = (
@@ -10520,10 +10225,6 @@
 /turf/simulated/floor/tiled/eris/cafe,
 /area/crew_quarters/cafeteria)
 "tS" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/obj/effect/overlay/snow/floor/pointy,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -10583,12 +10284,6 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/grass,
 /area/hydroponics)
-"tY" = (
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 6
-	},
-/turf/simulated/open/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "tZ" = (
 /obj/machinery/door/airlock/glass_external/public{
 	name = "Public External Airlock"
@@ -10643,16 +10338,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
-"ud" = (
-/obj/structure/catwalk,
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
-/turf/simulated/floor/plating/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "ue" = (
 /obj/machinery/atmospherics/component/unary/vent_pump/on,
 /turf/simulated/floor/tiled/monowhite,
@@ -10764,13 +10449,6 @@
 /obj/structure/table/wooden_reinforced,
 /turf/simulated/floor/carpet/blue,
 /area/crew_quarters/captain)
-"uq" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/obj/structure/railing,
-/turf/simulated/floor/reinforced/lythios43c,
-/area/rift/surfaceeva/aa/cliff_south)
 "ur" = (
 /obj/structure/table/reinforced,
 /obj/machinery/computer/mecha,
@@ -10876,13 +10554,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/steel,
 /area/exploration)
-"uD" = (
-/obj/effect/overlay/snow/floor/pointy,
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "uE" = (
 /turf/simulated/floor/tiled/steel_grid,
 /area/bridge/bunker)
@@ -10963,12 +10634,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
 "uN" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/exploration/courser_dock)
 "uO" = (
@@ -11312,15 +10978,6 @@
 /obj/random/trash_pile,
 /turf/simulated/floor/plating,
 /area/maintenance/commandmaint)
-"vv" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/ai)
 "vw" = (
 /obj/structure/sink{
 	dir = 8;
@@ -11352,13 +11009,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
 "vz" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "vA" = (
@@ -12158,7 +11809,7 @@
 	health = 1e+006
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/visible/fuel,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/lythios43c/indoors,
 /area/shuttle/excursion/cargo)
 "wV" = (
 /obj/effect/floor_decal/borderfloorblack{
@@ -12413,8 +12064,11 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/firedoor/glass,
-/obj/machinery/smartfridge,
-/turf/simulated/floor/plating,
+/obj/machinery/door/airlock/glass{
+	name = "Hydroponics";
+	req_one_access = list(35,28)
+	},
+/turf/simulated/floor/tiled/steel,
 /area/hydroponics)
 "xq" = (
 /obj/machinery/door/airlock/glass_external,
@@ -12661,9 +12315,6 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/bar)
 "xQ" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
 /obj/machinery/door/blast/regular{
 	density = 0;
 	dir = 4;
@@ -12672,10 +12323,7 @@
 	name = "Shuttle Blast Doors";
 	opacity = 0
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/shuttle/excursion/general)
 "xR" = (
@@ -12701,16 +12349,6 @@
 /obj/effect/debris/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/commandmaint)
-"xV" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/civvie/cockpit)
 "xW" = (
 /obj/machinery/power/apc{
 	cell_type = /obj/item/cell/super;
@@ -12957,15 +12595,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"ys" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 5
-	},
-/turf/simulated/open/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "yt" = (
 /obj/effect/floor_decal/borderfloor{
 	dir = 1
@@ -13003,18 +12632,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 5
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/lythios43c/indoors,
 /area/shuttle/excursion/cargo)
 "yw" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/docking_hallway2)
 "yx" = (
@@ -13146,7 +12767,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
-	dir = 1;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -13402,12 +13022,26 @@
 /turf/simulated/floor/tiled/old_tile/green,
 /area/shuttle/civvie/cockpit)
 "zr" = (
-/obj/effect/overlay/snow/floor/pointy{
+/obj/effect/floor_decal/borderfloor{
 	dir = 1
 	},
-/obj/effect/overlay/snow/floor/pointy,
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
+/obj/effect/floor_decal/corner/lightgrey/border{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/glass/hidden{
+	dir = 2
+	},
+/obj/effect/floor_decal/steeldecal/steel_decals5,
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/hallway/primary/surfacethree)
 "zs" = (
 /obj/machinery/computer/rcon{
 	dir = 8
@@ -13454,15 +13088,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"zw" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/lythios43c,
-/area/rift/surfaceeva/aa/cliff_south)
 "zx" = (
 /obj/structure/bed/chair/shuttle{
 	dir = 1
@@ -13562,13 +13187,6 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/ai_upload)
-"zI" = (
-/obj/structure/catwalk,
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 1
-	},
-/turf/simulated/open/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "zJ" = (
 /turf/simulated/wall,
 /area/crew_quarters/kitchen)
@@ -13616,17 +13234,6 @@
 /obj/effect/debris/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/commandmaint)
-"zQ" = (
-/obj/effect/overlay/snow/floor/pointy,
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
-/obj/effect/overlay/snow/floor,
-/turf/simulated/floor/lythios43c/indoors,
-/area/rift/surfacebase/outside/outside3)
 "zR" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -13949,13 +13556,6 @@
 /obj/machinery/door/firedoor/glass,
 /turf/simulated/floor/tiled/steel,
 /area/exploration)
-"Au" = (
-/obj/effect/overlay/snow/floor/pointy,
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "Av" = (
 /obj/structure/bed/chair/wood{
 	dir = 1
@@ -14105,13 +13705,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/ai)
 "AM" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/teleporter/departing)
 "AN" = (
@@ -14527,12 +14121,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"Bz" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "BA" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -14667,6 +14255,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/machinery/door/firedoor/glass,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
+	icon_state = "shutter0";
+	id = "arv_check_hall_shutter";
+	name = "Arrivals Hallway Shutter";
+	opacity = 0
+	},
 /turf/simulated/floor/tiled/steel,
 /area/hallway/secondary/docking_hallway)
 "BO" = (
@@ -14677,10 +14273,7 @@
 /turf/simulated/floor/wood,
 /area/exploration/meeting)
 "BP" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced,
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/shuttle/excursion/cockpit)
 "BQ" = (
@@ -14801,26 +14394,10 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/ai)
-"Cb" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/obj/effect/overlay/snow/floor/pointy,
-/obj/structure/railing,
-/turf/simulated/floor/reinforced/lythios43c,
-/area/rift/surfaceeva/aa/cliff_north)
 "Cc" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
+/obj/spawner/window/reinforced/full/firelocks,
+/turf/simulated/floor/plating,
+/area/shuttle/excursion/cargo)
 "Cd" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -15096,22 +14673,6 @@
 /obj/item/storage/box/freezer,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/emt/general)
-"CF" = (
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
-"CG" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/obj/effect/overlay/snow/floor/pointy,
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/lythios43c,
-/area/rift/surfaceeva/aa/cliff_north)
 "CH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -15210,13 +14771,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/exploration/courser_dock)
-"CU" = (
-/obj/effect/overlay/snow/floor/pointy,
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced/lythios43c,
-/area/rift/surfaceeva/aa/cliff_north)
 "CV" = (
 /obj/structure/closet/walllocker/emerglocker{
 	pixel_x = -30
@@ -15321,6 +14875,10 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/excursion/cargo)
+"De" = (
+/obj/spawner/window/reinforced/full/firelocks,
+/turf/simulated/floor/plating,
+/area/rift/stairwell/primary/surfacethree)
 "Df" = (
 /obj/machinery/power/smes/buildable/point_of_interest,
 /obj/structure/cable/cyan{
@@ -15643,7 +15201,14 @@
 "DM" = (
 /obj/structure/table/wooden_reinforced,
 /obj/item/folder/blue_captain,
-/obj/item/stamp/captain,
+/obj/item/stamp/captain{
+	pixel_x = 8;
+	pixel_y = -3
+	},
+/obj/item/stamp/denied{
+	pixel_x = 8;
+	pixel_y = 3
+	},
 /turf/simulated/floor/carpet/blue,
 /area/crew_quarters/captain)
 "DN" = (
@@ -15658,6 +15223,8 @@
 	dir = 8;
 	pixel_x = 24
 	},
+/obj/item/storage/single_use/med_pouch/overdose,
+/obj/item/storage/single_use/med_pouch/overdose,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar_backroom)
 "DO" = (
@@ -15737,12 +15304,6 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/crew_quarters/locker/laundry_arrival)
-"DX" = (
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "DY" = (
 /obj/structure/railing{
 	dir = 8
@@ -15772,9 +15333,7 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/bridge/bunker)
 "Ec" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/crew_quarters/heads/hop)
 "Ed" = (
@@ -15961,13 +15520,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/exploration/courser_dock)
 "Eu" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/docking_hallway)
 "Ev" = (
@@ -16078,13 +15631,6 @@
 /obj/machinery/door/airlock/maintenance/common,
 /turf/simulated/floor/tiled/steel,
 /area/hallway/secondary/docking_hallway)
-"EH" = (
-/obj/effect/overlay/snow/floor/edges_new,
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "EI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -16161,7 +15707,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 6
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/lythios43c/indoors,
 /area/shuttle/excursion/cargo)
 "EP" = (
 /obj/effect/floor_decal/industrial/halfstair,
@@ -16870,12 +16416,6 @@
 "Gi" = (
 /turf/simulated/wall/r_wall,
 /area/crew_quarters/bar_backroom)
-"Gj" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/lythios43c,
-/area/rift/surfaceeva/aa/cliff_south)
 "Gk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -16898,12 +16438,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
-"Gm" = (
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "Gn" = (
 /obj/structure/handrail,
 /obj/structure/cable/green{
@@ -17010,10 +16544,6 @@
 /obj/structure/closet/secure_closet/freezer/fridge,
 /turf/simulated/floor/tiled/freezer/cold,
 /area/crew_quarters/freezer)
-"Gy" = (
-/obj/effect/overlay/snow/floor/pointy,
-/turf/simulated/floor/reinforced/lythios43c,
-/area/rift/surfaceeva/aa/cliff_north)
 "Gz" = (
 /obj/structure/railing,
 /obj/structure/lattice,
@@ -17037,13 +16567,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
-"GD" = (
-/obj/effect/overlay/snow/floor/pointy,
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced/lythios43c,
-/area/rift/surfaceeva/aa/cliff_south)
 "GE" = (
 /obj/machinery/atmospherics/component/unary/vent_pump/on{
 	dir = 4
@@ -17235,7 +16758,6 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/shuttle/excursion/cargo)
 "GZ" = (
-/obj/effect/overlay/snow/floor/pointy,
 /obj/machinery/power/pointdefense{
 	id_tag = "s3north"
 	},
@@ -17599,13 +17121,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/exploration/courser_dock)
-"HL" = (
-/obj/effect/overlay/snow/floor/pointy,
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/lythios43c,
-/area/rift/surfaceeva/aa/cliff_north)
 "HM" = (
 /obj/effect/floor_decal/borderfloorblack{
 	dir = 6
@@ -17871,20 +17386,19 @@
 /turf/simulated/floor/tiled/steel,
 /area/crew_quarters/locker/laundry_arrival)
 "Io" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/crew_quarters/bar_backroom)
 "Ip" = (
 /obj/structure/table/reinforced,
-/obj/item/stamp/hop,
+/obj/item/stamp/hop{
+	pixel_x = -8;
+	pixel_y = -3
+	},
+/obj/item/stamp/denied{
+	pixel_x = -8;
+	pixel_y = 3
+	},
 /turf/simulated/floor/carpet/blue,
 /area/crew_quarters/heads/hop)
 "Iq" = (
@@ -17949,16 +17463,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/bridge_hallway)
-"Iw" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/commandmaint)
 "Ix" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/machinery/atmospherics/portables_connector{
@@ -18311,12 +17815,6 @@
 "Jf" = (
 /turf/simulated/wall,
 /area/exploration/showers)
-"Jg" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/turf/simulated/floor/plating,
-/area/rift/stairwell/primary/surfacethree)
 "Jh" = (
 /obj/machinery/door/airlock/maintenance/command,
 /turf/simulated/floor/plating,
@@ -18533,6 +18031,10 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/curtain/open/bed{
+	name = "brown curtain";
+	pixel_x = -32
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "JD" = (
@@ -18683,15 +18185,6 @@
 /obj/effect/floor_decal/industrial/danger,
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
-"JQ" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/lythios43c,
-/area/rift/surfaceeva/aa/cliff_north)
 "JR" = (
 /obj/machinery/light/small,
 /obj/structure/railing{
@@ -18839,13 +18332,6 @@
 /obj/item/storage/box/glasses/meta,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
-"Kd" = (
-/obj/structure/girder,
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/turf/simulated/floor/lythios43c/indoors,
-/area/maintenance/commandmaint)
 "Ke" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -18935,9 +18421,6 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/rift/trade_shop/landing_pad)
 "Ko" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
 /obj/structure/railing,
 /turf/simulated/floor/reinforced/lythios43c,
 /area/rift/surfaceeva/aa/cliff_north)
@@ -19042,7 +18525,7 @@
 	},
 /obj/item/ammo_magazine/s357,
 /obj/item/ammo_magazine/s357,
-/obj/item/gun/projectile/revolver/mateba,
+/obj/item/gun/ballistic/revolver/mateba,
 /obj/effect/floor_decal/borderfloorblack/full,
 /obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/tiled/dark,
@@ -19137,13 +18620,13 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "KJ" = (
-/obj/machinery/suit_cycler/exploration,
 /obj/effect/floor_decal/borderfloor{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige/border{
 	dir = 4
 	},
+/obj/machinery/suit_cycler/pathfinder,
 /turf/simulated/floor/tiled/steel,
 /area/exploration/pathfinder_office)
 "KK" = (
@@ -19265,9 +18748,6 @@
 /turf/simulated/floor/tiled/steel,
 /area/hallway/secondary/docking_hallway)
 "KV" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
 /obj/structure/railing,
 /obj/machinery/power/pointdefense{
 	id_tag = "s3north"
@@ -19288,9 +18768,7 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/bridge/bunker)
 "KY" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/exploration/explorer_prep)
 "KZ" = (
@@ -19499,14 +18977,14 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "Ly" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/spawner/window/reinforced/full/firelocks,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 2;
+	icon_state = "pdoor0";
+	id = "shuttle blast";
+	name = "Shuttle Blast Doors";
+	opacity = 0
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/excursion/general)
@@ -19887,19 +19365,6 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/shuttle/courser/general)
-"Mm" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/lythios43c,
-/area/rift/surfaceeva/aa/cliff_south)
-"Mn" = (
-/obj/effect/overlay/snow/floor/pointy,
-/turf/simulated/floor/reinforced/lythios43c,
-/area/rift/surfaceeva/aa/cliff_south)
 "Mo" = (
 /obj/structure/bed/chair/bay{
 	dir = 1
@@ -20124,6 +19589,10 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
+/obj/structure/curtain/open/bed{
+	name = "brown curtain";
+	pixel_x = -32
+	},
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "MI" = (
@@ -20204,9 +19673,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/ai_upload)
 "MT" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/crew_quarters/cafeteria)
 "MU" = (
@@ -20280,12 +19747,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/courser/general)
-"Nd" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "Ne" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -20432,7 +19893,7 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/bridge/bunker)
 "Nu" = (
-/obj/item/gun/projectile/shotgun/doublebarrel,
+/obj/item/gun/ballistic/shotgun/doublebarrel,
 /obj/item/storage/box/beanbags/large,
 /obj/item/storage/box/beanbags/large,
 /obj/item/clothing/accessory/permit/gun/bar,
@@ -20440,7 +19901,7 @@
 	info = "This permit signifies that the Bartender is permitted to posess this firearm in the bar, and ONLY the bar. Failure to adhere to this permit will result in confiscation of the weapon and possibly arrest.";
 	name = "Shotgun permit"
 	},
-/obj/item/gun/projectile/shotgun/doublebarrel,
+/obj/item/gun/ballistic/shotgun/doublebarrel,
 /obj/item/clothing/suit/armor/vest/alt{
 	name = "armor vest"
 	},
@@ -20690,12 +20151,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
-"NV" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "NW" = (
 /obj/effect/floor_decal/steeldecal/steel_decals9{
 	dir = 8
@@ -20835,15 +20290,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
-"Of" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/excursion/cockpit)
 "Og" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -21093,7 +20539,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/hallway/secondary/docking_hallway)
 "OH" = (
-/obj/item/gun/projectile/shotgun/flare,
+/obj/item/gun/ballistic/shotgun/flare,
 /obj/item/storage/box/flashshells,
 /obj/item/duct_tape_roll,
 /obj/structure/closet/hydrant{
@@ -21155,13 +20601,6 @@
 	layer = 3.1;
 	name = "Bridge Lockdown Shutters";
 	opacity = 0
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "bridge_tint"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "bridge_tint"
 	},
 /turf/simulated/floor/plating,
 /area/bridge)
@@ -21276,9 +20715,7 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/bridge/bunker)
 "OV" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/shuttle/excursion/general)
 "OW" = (
@@ -21360,6 +20797,14 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor/glass,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
+	icon_state = "shutter0";
+	id = "arv_check_hall_shutter";
+	name = "Arrivals Hallway Shutter";
+	opacity = 0
+	},
 /turf/simulated/floor/tiled/steel,
 /area/hallway/secondary/docking_hallway)
 "Pe" = (
@@ -21401,12 +20846,6 @@
 	},
 /turf/simulated/floor/tiled/freezer/cold,
 /area/crew_quarters/freezer)
-"Pj" = (
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "Pk" = (
 /turf/simulated/shuttle/wall/voidcraft/hard_corner,
 /area/turbolift/rsurface/level3)
@@ -21521,6 +20960,7 @@
 /obj/effect/floor_decal/steeldecal/steel_decals6{
 	dir = 6
 	},
+/obj/item/storage/single_use/med_pouch/burn,
 /turf/simulated/floor/tiled/steel,
 /area/hallway/secondary/docking_hallway)
 "Px" = (
@@ -21586,28 +21026,9 @@
 /turf/simulated/floor/tiled/steel,
 /area/hallway/secondary/docking_hallway2)
 "PE" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/maintenance/commandmaint)
-"PF" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/machinery/holosign/bar{
-	id = "bar_sign";
-	layer = 4.9;
-	pixel_y = -1
-	},
-/turf/simulated/floor/plating,
-/area/crew_quarters/bar)
 "PG" = (
 /obj/structure/bed/chair/wood,
 /obj/machinery/light{
@@ -21623,7 +21044,6 @@
 /turf/simulated/floor/tiled/eris/cafe,
 /area/crew_quarters/cafeteria)
 "PH" = (
-/obj/structure/grille,
 /obj/machinery/door/firedoor/glass,
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -21634,17 +21054,7 @@
 	name = "Bridge Lockdown Shutters";
 	opacity = 0
 	},
-/obj/structure/window/reinforced/polarized/full{
-	id = "bridge_tint"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "bridge_tint"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "bridge_tint"
-	},
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/bridge)
 "PI" = (
@@ -21730,14 +21140,6 @@
 	name = "Bridge Lockdown Shutters";
 	opacity = 0
 	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "bridge_tint"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "bridge_tint"
-	},
 /turf/simulated/floor/plating,
 /area/bridge)
 "PQ" = (
@@ -21817,15 +21219,6 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled/techmaint,
 /area/shuttle/excursion/cargo)
-"PZ" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "Qa" = (
 /obj/effect/floor_decal/borderfloorblack/corner2{
 	dir = 5
@@ -21948,15 +21341,6 @@
 	},
 /turf/simulated/floor/tiled/old_tile/green,
 /area/shuttle/civvie/general)
-"Ql" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/commandmaint)
 "Qm" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 1
@@ -22393,11 +21777,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/courser/general)
-"QZ" = (
-/obj/structure/catwalk,
-/obj/effect/overlay/snow/floor/edges_new,
-/turf/simulated/open/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "Ra" = (
 /obj/structure/railing/grey{
 	dir = 1
@@ -22488,15 +21867,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/exploration/courser_dock)
-"Rk" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "Rl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -22730,15 +22100,6 @@
 /obj/structure/window/reinforced/tinted/frosted,
 /turf/simulated/floor/carpet/blue,
 /area/crew_quarters/captain)
-"RD" = (
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 1
-	},
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 4
-	},
-/turf/simulated/open/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "RE" = (
 /obj/machinery/computer/secure_data{
 	dir = 1
@@ -22817,10 +22178,6 @@
 /obj/machinery/shipsensors,
 /turf/simulated/floor/tiled/techfloor/grid/lythios43c,
 /area/shuttle/civvie/cockpit)
-"RL" = (
-/obj/effect/overlay/snow/floor/edges_new,
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "RM" = (
 /obj/item/bee_pack,
 /obj/item/honey_frame,
@@ -22920,10 +22277,6 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ai)
 "RU" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/obj/effect/overlay/snow/floor/pointy,
 /turf/simulated/floor/lythios43c/indoors,
 /area/rift/surfacebase/outside/outside3)
 "RV" = (
@@ -23222,13 +22575,6 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/captain)
 "Sv" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/obj/effect/overlay/snow/floor/pointy,
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
 /turf/simulated/floor/reinforced/lythios43c,
 /area/rift/surfaceeva/aa/cliff_south)
 "Sw" = (
@@ -23358,15 +22704,7 @@
 /turf/simulated/floor/tiled/old_tile/green,
 /area/shuttle/civvie/general)
 "SL" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/shuttle/civvie/cockpit)
 "SM" = (
@@ -23462,10 +22800,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/exploration/courser_dock)
-"SW" = (
-/obj/effect/overlay/snow/floor,
-/turf/simulated/floor/plating,
-/area/rift/surfacebase/outside/outside3)
 "SX" = (
 /obj/effect/floor_decal/borderfloor{
 	dir = 6
@@ -23606,7 +22940,10 @@
 	icon_state = "2-4"
 	},
 /obj/structure/cable/green{
-	icon_state = "1-4"
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/hallway/primary/surfacethree)
@@ -23805,15 +23142,20 @@
 /turf/simulated/floor/tiled/monotile,
 /area/rift/trade_shop/landing_pad)
 "TK" = (
-/obj/effect/overlay/snow/floor/pointy,
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "arv_check_shutter";
+	name = "Arrivals Checkpoint Shutter";
+	opacity = 0
 	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
-/turf/simulated/floor/reinforced/lythios43c,
-/area/rift/surfaceeva/aa/cliff_north)
+/obj/spawner/window/reinforced/full/firelocks,
+/turf/simulated/floor/plating,
+/area/security/checkpoint2)
 "TL" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -23851,13 +23193,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/rift/surfaceeva/aa/cliff_north)
 "TP" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/rift/surfacebase/outside/outside3)
 "TQ" = (
@@ -24079,9 +23415,6 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "Un" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 8;
@@ -24091,14 +23424,12 @@
 	opacity = 0
 	},
 /obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/security/checkpoint2)
 "Uo" = (
@@ -24162,15 +23493,6 @@
 "Uu" = (
 /turf/simulated/floor/reinforced/lythios43c,
 /area/rift/surfacebase/shuttle)
-"Uv" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/excursion/cockpit)
 "Uw" = (
 /obj/structure/cable/green{
 	icon_state = "32-4"
@@ -24323,6 +23645,17 @@
 /obj/structure/table/bench/steel,
 /turf/simulated/floor/plating,
 /area/maintenance/station/exploration)
+"UI" = (
+/obj/structure/window/reinforced,
+/obj/structure/bed/chair/sofa/black/left{
+	dir = 1
+	},
+/obj/structure/curtain/open/bed{
+	name = "brown curtain";
+	pixel_x = -32
+	},
+/turf/simulated/floor/carpet/turcarpet,
+/area/crew_quarters/bar)
 "UJ" = (
 /obj/machinery/photocopier,
 /obj/effect/floor_decal/corner/lightgrey{
@@ -24408,7 +23741,7 @@
 /obj/structure/table/rack/shelf,
 /obj/effect/floor_decal/borderfloorblack/full,
 /obj/effect/floor_decal/industrial/outline,
-/obj/item/gun/projectile/SVD,
+/obj/item/gun/ballistic/SVD,
 /obj/item/ammo_magazine/m762svd,
 /obj/item/ammo_magazine/m762svd,
 /obj/item/clothing/suit/space/void/merc/soviet,
@@ -24706,10 +24039,6 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "Vw" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/obj/effect/overlay/snow/floor/pointy,
 /turf/simulated/floor/reinforced/lythios43c,
 /area/rift/surfaceeva/aa/cliff_north)
 "Vx" = (
@@ -24752,13 +24081,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/commandmaint)
 "VB" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 2;
@@ -24770,6 +24092,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
+/obj/spawner/window/reinforced/full/firelocks,
 /turf/simulated/floor/plating,
 /area/crew_quarters/locker/laundry_arrival)
 "VC" = (
@@ -25127,14 +24450,6 @@
 /obj/structure/window/reinforced/polarized/full{
 	id = "hop_office"
 	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "hop_office"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "hop_office"
-	},
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 8;
@@ -25212,9 +24527,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/grille,
+/obj/machinery/smartfridge,
 /obj/machinery/door/firedoor/glass,
-/obj/structure/window/reinforced/full,
 /turf/simulated/floor/plating,
 /area/hydroponics)
 "Ww" = (
@@ -25289,17 +24603,6 @@
 /obj/map_helper/airlock/door/int_door,
 /turf/simulated/floor/plating,
 /area/shuttle/courser/general)
-"WE" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/obj/effect/overlay/snow/floor/pointy,
-/obj/structure/railing,
-/turf/simulated/floor/reinforced/lythios43c,
-/area/rift/surfaceeva/aa/cliff_south)
 "WF" = (
 /obj/effect/floor_decal/borderfloorblack,
 /obj/effect/floor_decal/borderfloorblack{
@@ -25449,12 +24752,6 @@
 /obj/item/clothing/head/helmet/space/void/exploration/alt,
 /turf/simulated/floor/tiled,
 /area/exploration/explorer_prep)
-"WR" = (
-/obj/effect/overlay/snow/floor/edges_new{
-	dir = 5
-	},
-/turf/simulated/open/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "WS" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/blue{
@@ -25755,7 +25052,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/lythios43c/indoors,
 /area/shuttle/excursion/cargo)
 "Xu" = (
 /turf/simulated/wall,
@@ -25876,15 +25173,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/exploration/showers)
-"XE" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 8
-	},
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "XF" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -26045,12 +25333,6 @@
 /obj/structure/sign/warning/nosmoking_1,
 /turf/simulated/wall/r_wall,
 /area/exploration/courser_dock)
-"XY" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced/lythios43c,
-/area/rift/surfaceeva/aa/cliff_north)
 "XZ" = (
 /obj/machinery/light{
 	dir = 1
@@ -26163,12 +25445,6 @@
 	},
 /turf/simulated/floor/tiled/steel_grid/lythios43c,
 /area/rift/surfacebase/outside/outside3)
-"Yo" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced/full,
-/obj/machinery/door/firedoor/glass,
-/turf/simulated/floor/plating,
-/area/shuttle/excursion/cargo)
 "Yp" = (
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 1
@@ -26249,13 +25525,6 @@
 /obj/effect/floor_decal/corner/lime/border,
 /turf/simulated/floor/tiled/steel,
 /area/hydroponics)
-"Yz" = (
-/obj/effect/overlay/snow/floor/pointy{
-	dir = 4
-	},
-/obj/effect/overlay/snow/floor/pointy,
-/turf/simulated/floor/tiled/steel_grid/lythios43c,
-/area/rift/surfacebase/outside/outside3)
 "YA" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -26489,6 +25758,8 @@
 	pixel_y = 8
 	},
 /obj/item/robotanalyzer,
+/obj/item/storage/single_use/med_pouch/oxyloss,
+/obj/item/storage/single_use/med_pouch/toxin,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/excursion/general)
 "YY" = (
@@ -30643,9 +29914,9 @@ cH
 cH
 cH
 cH
-kk
-CF
-Pj
+Hj
+Hj
+Hj
 cH
 cH
 cH
@@ -30837,9 +30108,9 @@ cH
 cH
 cH
 cH
-Gm
 Hj
-DX
+Hj
+Hj
 cH
 cH
 cH
@@ -31032,7 +30303,7 @@ cH
 cH
 cH
 cH
-EH
+Hj
 cH
 cH
 cH
@@ -31226,7 +30497,7 @@ cH
 cH
 cH
 cH
-EH
+Hj
 cH
 cH
 cH
@@ -31420,7 +30691,7 @@ Oi
 Oi
 Oi
 CA
-Au
+Hj
 CA
 Oi
 Oi
@@ -31614,7 +30885,7 @@ Oi
 Oi
 Oi
 CA
-Au
+Hj
 CA
 Oi
 Oi
@@ -31808,7 +31079,7 @@ Oi
 Oi
 Oi
 CA
-Au
+Hj
 CA
 Oi
 Oi
@@ -32002,7 +31273,7 @@ Oi
 Oi
 Oi
 CA
-Au
+Hj
 CA
 Oi
 Oi
@@ -32196,7 +31467,7 @@ Oi
 Oi
 Oi
 CA
-Au
+Hj
 CA
 Oi
 Oi
@@ -32390,7 +31661,7 @@ Oi
 Oi
 CA
 CA
-Au
+Hj
 CA
 CA
 Oi
@@ -32583,9 +31854,9 @@ Oi
 Oi
 Oi
 CA
-pN
 Hj
-PZ
+Hj
+Hj
 CA
 Oi
 Oi
@@ -32769,28 +32040,28 @@ Oi
 Oi
 Oi
 Oi
-pN
-px
-px
-px
-px
-px
-px
-px
-NV
-NV
-NV
-px
-px
-px
-px
-px
-px
-px
-px
-px
-px
-PZ
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
 Oi
 Oi
 Oi
@@ -32831,7 +32102,7 @@ Oi
 OC
 "}
 (31,1,1) = {"
-Oi
+OC
 Oi
 Oi
 BK
@@ -32963,7 +32234,7 @@ Oi
 Oi
 Oi
 Oi
-Au
+Hj
 us
 us
 us
@@ -32984,7 +32255,7 @@ us
 us
 us
 us
-zr
+Hj
 Oi
 Oi
 Oi
@@ -33025,7 +32296,7 @@ Oi
 OC
 "}
 (32,1,1) = {"
-Oi
+OC
 Oi
 Oi
 BK
@@ -33157,7 +32428,7 @@ Oi
 Oi
 Oi
 Oi
-Au
+Hj
 us
 us
 us
@@ -33178,7 +32449,7 @@ us
 us
 us
 us
-zr
+Hj
 Oi
 Oi
 Oi
@@ -33219,7 +32490,7 @@ Oi
 OC
 "}
 (33,1,1) = {"
-Oi
+OC
 Oi
 Oi
 BK
@@ -33351,7 +32622,7 @@ Oi
 Oi
 Oi
 Oi
-Au
+Hj
 us
 us
 us
@@ -33372,7 +32643,7 @@ us
 us
 us
 us
-zr
+Hj
 Oi
 Oi
 Oi
@@ -33413,7 +32684,7 @@ Oi
 OC
 "}
 (34,1,1) = {"
-Oi
+OC
 Oi
 Oi
 BK
@@ -33545,7 +32816,7 @@ Oi
 Oi
 Oi
 Oi
-Au
+Hj
 us
 us
 us
@@ -33566,8 +32837,8 @@ us
 us
 us
 us
-uD
-PZ
+Hj
+Hj
 Oi
 Oi
 Oi
@@ -33607,7 +32878,7 @@ Oi
 OC
 "}
 (35,1,1) = {"
-Oi
+OC
 Oi
 Oi
 fo
@@ -33739,7 +33010,7 @@ Oi
 Oi
 Oi
 Oi
-Au
+Hj
 us
 us
 us
@@ -33761,7 +33032,7 @@ us
 us
 us
 us
-zr
+Hj
 Oi
 Oi
 Oi
@@ -33801,7 +33072,7 @@ Oi
 OC
 "}
 (36,1,1) = {"
-Oi
+OC
 Oi
 Oi
 Oi
@@ -33933,7 +33204,7 @@ Oi
 Oi
 Oi
 Oi
-Au
+Hj
 us
 us
 us
@@ -33955,7 +33226,7 @@ us
 us
 us
 us
-zr
+Hj
 Oi
 Oi
 Oi
@@ -33995,7 +33266,7 @@ Oi
 OC
 "}
 (37,1,1) = {"
-Oi
+OC
 Oi
 Oi
 Oi
@@ -34111,8 +33382,8 @@ Oi
 Oi
 cH
 cH
-kk
-Rk
+Hj
+Hj
 CA
 CA
 CA
@@ -34127,7 +33398,7 @@ CA
 CA
 CA
 CA
-Au
+Hj
 us
 us
 us
@@ -34149,7 +33420,7 @@ us
 us
 us
 us
-zr
+Hj
 CA
 CA
 CA
@@ -34158,8 +33429,8 @@ CA
 CA
 CA
 CA
-kk
-Pj
+Hj
+Hj
 cH
 cH
 cH
@@ -34305,55 +33576,55 @@ Oi
 Oi
 cH
 cH
-pc
 Hj
-px
-px
-px
-px
-px
-px
-px
-px
-px
-px
-px
-px
-px
-px
-Nd
-us
-us
-us
-us
-us
-us
-us
-us
-us
-us
-us
-us
-us
-us
-us
-us
-us
-us
-us
-us
-us
-rz
-XE
-XE
-XE
-XE
-XE
-XE
-XE
-XE
 Hj
-RL
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+us
+us
+us
+us
+us
+us
+us
+us
+us
+us
+us
+us
+us
+us
+us
+us
+us
+us
+us
+us
+us
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
 cH
 cH
 cH
@@ -34499,8 +33770,8 @@ Oi
 Oi
 cH
 cH
-Gm
-dt
+Hj
+Hj
 CA
 CA
 CA
@@ -34515,7 +33786,7 @@ CA
 CA
 CA
 CA
-Au
+Hj
 us
 us
 us
@@ -34537,7 +33808,7 @@ us
 us
 us
 us
-zr
+Hj
 CA
 CA
 CA
@@ -34546,8 +33817,8 @@ CA
 CA
 CA
 CA
-Gm
-DX
+Hj
+Hj
 cH
 cH
 cH
@@ -34709,7 +33980,7 @@ Oi
 Oi
 Oi
 Oi
-Au
+Hj
 us
 us
 us
@@ -34731,7 +34002,7 @@ us
 us
 us
 us
-zr
+Hj
 Oi
 Oi
 Oi
@@ -34903,7 +34174,7 @@ Oi
 Oi
 Oi
 Oi
-Au
+Hj
 us
 us
 us
@@ -34925,7 +34196,7 @@ us
 us
 us
 us
-zr
+Hj
 Oi
 Oi
 Oi
@@ -35097,7 +34368,7 @@ Oi
 Oi
 Oi
 Oi
-Au
+Hj
 us
 us
 us
@@ -35118,8 +34389,8 @@ us
 us
 us
 us
-pN
-Nd
+Hj
+Hj
 Oi
 Oi
 Oi
@@ -35291,7 +34562,7 @@ Oi
 Oi
 Oi
 Oi
-Au
+Hj
 us
 us
 us
@@ -35312,7 +34583,7 @@ us
 us
 us
 us
-zr
+Hj
 Oi
 Oi
 Oi
@@ -35485,7 +34756,7 @@ Oi
 Oi
 Oi
 Oi
-Au
+Hj
 us
 us
 us
@@ -35506,7 +34777,7 @@ us
 us
 us
 us
-zr
+Hj
 Oi
 Oi
 Oi
@@ -35679,7 +34950,7 @@ Oi
 Oi
 Oi
 Oi
-Au
+Hj
 us
 us
 us
@@ -35700,7 +34971,7 @@ us
 us
 us
 us
-zr
+Hj
 Oi
 Oi
 Oi
@@ -35873,28 +35144,28 @@ Oi
 Oi
 Oi
 Oi
-Yz
-px
-px
-px
-px
-px
-px
-px
-Bz
-Bz
-Bz
-px
-px
-px
-px
-px
-px
-px
-px
-px
-px
-Cc
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
 Oi
 Oi
 Oi
@@ -36075,9 +35346,9 @@ Oi
 Oi
 Oi
 CA
-uD
 Hj
-om
+Hj
+Hj
 CA
 Oi
 Oi
@@ -36270,7 +35541,7 @@ Oi
 Oi
 CA
 CA
-Au
+Hj
 CA
 CA
 Oi
@@ -36464,7 +35735,7 @@ Oi
 Oi
 Oi
 CA
-Au
+Hj
 CA
 Oi
 Oi
@@ -36658,7 +35929,7 @@ Oi
 Oi
 Oi
 CA
-Au
+Hj
 CA
 Oi
 Oi
@@ -36805,9 +36076,9 @@ Oi
 Oi
 Oi
 Oi
-do
-do
-do
+Oi
+Oi
+Oi
 Oi
 Oi
 Oi
@@ -36852,7 +36123,7 @@ Oi
 Oi
 Oi
 CA
-Au
+Hj
 CA
 Oi
 Oi
@@ -36995,16 +36266,16 @@ Oi
 Oi
 Oi
 Oi
-do
-do
-do
-tY
+Oi
+Oi
+Oi
+Oi
 cH
 cH
 cH
-WR
-do
-do
+Oi
+Oi
+Oi
 Oi
 Oi
 Tq
@@ -37046,7 +36317,7 @@ Oi
 Oi
 Oi
 CA
-Au
+Hj
 CA
 Oi
 Oi
@@ -37106,7 +36377,7 @@ Oi
 Oi
 Oi
 Oi
-do
+Oi
 BK
 us
 us
@@ -37181,14 +36452,14 @@ Oi
 Oi
 Oi
 Oi
-do
-do
-do
-do
-do
-do
-do
-tY
+Oi
+Oi
+Oi
+Oi
+Oi
+Oi
+Oi
+Oi
 cH
 cH
 cH
@@ -37199,7 +36470,7 @@ cH
 cH
 cH
 cH
-ys
+Tq
 Zd
 CA
 CA
@@ -37211,14 +36482,14 @@ CA
 CA
 CA
 JO
-gS
-do
+Tq
+Oi
 cH
 cH
 cH
 cH
 cH
-do
+Oi
 Oi
 Oi
 Oi
@@ -37240,7 +36511,7 @@ Oi
 Oi
 Oi
 CA
-Au
+Hj
 CA
 Oi
 Oi
@@ -37373,8 +36644,8 @@ Oi
 Oi
 Oi
 Oi
-do
-tY
+Oi
+Oi
 cH
 cH
 cH
@@ -37394,7 +36665,7 @@ cH
 cH
 QK
 Zv
-zI
+CA
 CA
 Tj
 si
@@ -37404,7 +36675,7 @@ DY
 si
 UN
 CA
-QZ
+CA
 Zh
 QK
 QK
@@ -37413,7 +36684,7 @@ QK
 QK
 QK
 QK
-WR
+Oi
 Oi
 Oi
 Oi
@@ -37434,7 +36705,7 @@ Oi
 Oi
 CA
 CA
-Au
+Hj
 CA
 CA
 Oi
@@ -37564,9 +36835,9 @@ Oi
 Oi
 Oi
 Oi
-do
-do
-tY
+Oi
+Oi
+Oi
 cH
 cH
 cH
@@ -37608,7 +36879,7 @@ bx
 bx
 QK
 QK
-RD
+Oi
 Oi
 Oi
 Oi
@@ -37627,9 +36898,9 @@ Oi
 Oi
 Oi
 CA
-pN
 Hj
-PZ
+Hj
+Hj
 CA
 Oi
 Oi
@@ -37712,8 +36983,8 @@ us
 us
 mn
 lL
-ud
-ud
+IA
+IA
 nF
 cH
 cH
@@ -37755,9 +37026,9 @@ Oi
 Oi
 Oi
 Oi
-do
-do
-tY
+Oi
+Oi
+Oi
 cH
 cH
 cH
@@ -37789,9 +37060,9 @@ MH
 JY
 JC
 Mt
-jF
+nP
 rV
-QH
+UI
 Aj
 cO
 bx
@@ -37803,8 +37074,8 @@ bx
 bx
 cH
 cH
-WR
-do
+Oi
+Oi
 Oi
 Oi
 Oi
@@ -37821,9 +37092,9 @@ Oi
 Oi
 Oi
 CA
-Yz
-NV
-Cc
+Hj
+Hj
+Hj
 CA
 Oi
 Oi
@@ -37929,11 +37200,10 @@ cH
 cH
 cH
 Oi
-do
-do
-do
-do
-gS
+Oi
+Oi
+Oi
+Oi
 Tq
 Tq
 Tq
@@ -37946,9 +37216,10 @@ Tq
 Tq
 Tq
 Tq
-qW
-do
-tY
+Tq
+Tq
+Oi
+Oi
 cH
 cH
 cH
@@ -37999,7 +37270,7 @@ cH
 cH
 cH
 cH
-WR
+Oi
 Oi
 Oi
 Oi
@@ -38128,18 +37399,18 @@ cH
 cH
 cH
 cH
-hj
-lu
-lu
-lu
-lu
-lu
-lu
-lu
-lu
-lu
-lu
-lN
+CA
+CA
+CA
+CA
+CA
+CA
+CA
+CA
+CA
+CA
+CA
+CA
 QK
 QK
 QK
@@ -38194,21 +37465,21 @@ cH
 cH
 cH
 cH
-WR
-do
-do
-do
-do
-do
 Oi
 Oi
 Oi
-do
-do
-do
-do
-do
-tY
+Oi
+Oi
+Oi
+Oi
+Oi
+Oi
+Oi
+Oi
+Oi
+Oi
+Oi
+Oi
 cH
 cH
 cH
@@ -38394,9 +37665,9 @@ cH
 cH
 cH
 cH
-WR
-do
-tY
+Oi
+Oi
+Oi
 cH
 cH
 cH
@@ -39294,7 +38565,7 @@ cH
 dx
 us
 us
-xV
+SL
 et
 zT
 lQ
@@ -39488,7 +38759,7 @@ cH
 dx
 us
 us
-xV
+SL
 xT
 Pv
 jt
@@ -39596,9 +38867,9 @@ cH
 cH
 cH
 QK
-WE
+rd
 Le
-pF
+Sv
 ej
 cH
 cH
@@ -39754,14 +39025,14 @@ us
 us
 Ot
 Tg
-VJ
+sd
 us
 us
 us
 us
 us
 us
-VJ
+sd
 NF
 LA
 us
@@ -39789,11 +39060,11 @@ cH
 cH
 cH
 QK
-GD
+Sv
 lD
 Le
 it
-Mm
+Sv
 ej
 fq
 cH
@@ -39921,7 +39192,7 @@ Po
 Po
 kx
 Sd
-PF
+rs
 RO
 eW
 Fm
@@ -39983,11 +39254,11 @@ cH
 cH
 fq
 QK
-Mn
-uq
+Sv
+rd
 Le
-Mn
-Gj
+Sv
+Sv
 ej
 fq
 fq
@@ -40177,11 +39448,11 @@ cH
 cH
 fq
 QK
-qD
+Sv
 lD
 Le
 it
-zw
+Sv
 ej
 fq
 fq
@@ -40537,7 +39808,7 @@ oo
 oo
 JI
 cT
-Yo
+Cc
 Ur
 uZ
 Jk
@@ -40927,7 +40198,7 @@ yk
 YY
 LA
 Lo
-Yo
+Cc
 LA
 LA
 mn
@@ -41114,10 +40385,10 @@ Hg
 gH
 CM
 CM
-Of
-Of
-Of
-Of
+BP
+BP
+BP
+BP
 CM
 CM
 Li
@@ -41306,7 +40577,7 @@ vE
 xQ
 dc
 uf
-gz
+BP
 Jb
 Od
 Lc
@@ -41458,19 +40729,19 @@ SJ
 cZ
 Ez
 ET
-Un
-Un
+TK
+TK
 Un
 cZ
 cZ
 aZ
 bC
-Jg
+De
 TZ
 Kx
 Cu
 Cu
-Jg
+De
 Yc
 Wg
 aQ
@@ -41500,7 +40771,7 @@ vE
 xQ
 bn
 oo
-gz
+BP
 Lk
 hE
 yR
@@ -41659,12 +40930,12 @@ dp
 cZ
 bc
 bE
-Jg
+De
 Bc
 UG
 Cu
 Cu
-Jg
+De
 YO
 Wg
 aQ
@@ -41696,10 +40967,10 @@ Uo
 OB
 CM
 Tm
-Uv
+BP
 CM
 CM
-Uv
+BP
 CM
 CM
 fV
@@ -41897,7 +41168,7 @@ wY
 xn
 LA
 TS
-Yo
+Cc
 LA
 zE
 mn
@@ -43048,7 +42319,7 @@ XQ
 vx
 Yg
 us
-VJ
+sd
 Ot
 fF
 QN
@@ -43211,12 +42482,12 @@ kG
 js
 PD
 bK
-Jg
+De
 kz
 hl
 Cu
 Cu
-Jg
+De
 Yc
 Wg
 aQ
@@ -43405,12 +42676,12 @@ js
 js
 bt
 ZH
-Jg
+De
 zo
 jb
 Cu
 Cu
-Jg
+De
 YO
 Wg
 aQ
@@ -43436,7 +42707,7 @@ kA
 kD
 Yg
 me
-nP
+tc
 PU
 dw
 Vm
@@ -43605,7 +42876,7 @@ vj
 xl
 xl
 xl
-zX
+zr
 ty
 YT
 ty
@@ -43824,7 +43095,7 @@ km
 jo
 Yg
 cH
-nP
+tc
 Rw
 WX
 EZ
@@ -45308,7 +44579,7 @@ Ad
 dx
 us
 us
-gn
+gC
 hI
 kV
 mk
@@ -45502,7 +44773,7 @@ cH
 dx
 us
 us
-gn
+gC
 ss
 lq
 mm
@@ -45527,7 +44798,7 @@ fq
 cH
 TP
 Gw
-Iw
+PE
 tK
 tK
 Pg
@@ -45721,7 +44992,7 @@ cH
 cH
 TP
 Gw
-Iw
+PE
 tK
 tK
 Pg
@@ -46063,7 +45334,7 @@ cH
 cH
 cH
 dx
-CG
+Vw
 EP
 Ad
 Ad
@@ -46256,9 +45527,9 @@ cH
 cH
 cH
 QK
-Cb
+Ko
 Ac
-TK
+Vw
 ej
 Ad
 Ad
@@ -46449,11 +45720,11 @@ cH
 cH
 cH
 QK
-CU
+Vw
 KV
 Ac
 GZ
-JQ
+Vw
 ej
 cH
 cH
@@ -46643,11 +45914,11 @@ cH
 cH
 cH
 QK
-Gy
+Vw
 Ko
 Ac
-Gy
-XY
+Vw
+Vw
 ej
 cH
 cH
@@ -46837,11 +46108,11 @@ cH
 cH
 cH
 QK
-HL
+Vw
 KV
 Ac
 GZ
-hv
+Vw
 ej
 cH
 cH
@@ -48781,7 +48052,7 @@ pj
 pj
 DR
 rq
-SW
+gB
 fq
 GO
 GO
@@ -48975,8 +48246,8 @@ TO
 Iq
 QP
 kj
-SW
-SW
+gB
+gB
 GO
 GO
 GO
@@ -49169,8 +48440,8 @@ tD
 Mo
 QP
 kj
-SW
-SW
+gB
+gB
 GO
 GO
 fq
@@ -49363,7 +48634,7 @@ rq
 rq
 rq
 rq
-SW
+gB
 GO
 GO
 fq
@@ -52330,7 +51601,7 @@ vu
 yK
 yK
 KT
-Ql
+aA
 fl
 YF
 Xk
@@ -52926,7 +52197,7 @@ HT
 HT
 HT
 La
-vv
+rC
 La
 ip
 fq
@@ -54832,9 +54103,9 @@ GO
 fq
 fq
 fq
-fN
+gB
 GO
-fz
+gB
 cr
 BL
 JX
@@ -55027,9 +54298,9 @@ GO
 fq
 fq
 fq
-zQ
+gB
 RU
-Kd
+Dq
 ZE
 JX
 Us
@@ -55222,7 +54493,7 @@ fq
 fq
 fq
 fq
-fg
+RU
 Px
 FW
 JX
@@ -55612,7 +54883,7 @@ fq
 fq
 fq
 YF
-sd
+ZE
 JX
 JX
 JX

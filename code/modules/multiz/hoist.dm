@@ -32,7 +32,7 @@
 	if (use_check(user, USE_DISALLOW_SILICONS))
 		return
 
-	if ((AM.flags & ATOM_ABSTRACT) || AM.anchored)
+	if ((AM.atom_flags & ATOM_ABSTRACT) || AM.anchored)
 		to_chat(user, SPAN_NOTICE("You can't do that."))
 		return
 	if (source_hoist.hoistee)
@@ -140,7 +140,7 @@
 		release_hoistee()
 	QDEL_NULL(source_hook)
 
-/obj/structure/hoist/ex_act(severity)
+/obj/structure/hoist/legacy_ex_act(severity)
 	switch(severity)
 		if(1.0)
 			qdel(src)
@@ -157,7 +157,7 @@
 				break_hoist()
 			return
 
-/obj/effect/hoist_hook/ex_act(severity)
+/obj/effect/hoist_hook/legacy_ex_act(severity)
 	switch(severity)
 		if(1.0)
 			source_hoist.break_hoist()

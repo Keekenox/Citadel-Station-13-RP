@@ -22,7 +22,8 @@
 					"Handy" = "handy-miner",
 					"Acheron" = "mechoid-Miner",
 					"Shellguard Noble" = "Noble-DIG",
-					"ZOOM-BA" = "zoomba-miner"
+					"ZOOM-BA" = "zoomba-miner",
+					"W02M" = "worm-miner"
 				)
 
 /obj/item/robot_module/robot/miner/Initialize(mapload)
@@ -42,7 +43,10 @@
 /obj/item/robot_module/robot/quad_miner
 	name = "Mining Quadruped module"
 	sprites = list(
-					"F3-LINE" = "FELI-Mining"
+					"F3-LINE" = "FELI-Mining",
+					"K-MINE" = "kmine",
+					"Cargo Hound" = "cargohound",
+					"Cargo Hound Dark" = "cargohounddark"
 					)
 	channels = list("Supply" = 1)
 	can_be_pushed = 0

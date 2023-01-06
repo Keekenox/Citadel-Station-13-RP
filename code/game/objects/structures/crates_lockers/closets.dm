@@ -216,18 +216,18 @@
 	update_icon()
 
 // this should probably use dump_contents()
-/obj/structure/closet/ex_act(severity)
+/obj/structure/closet/legacy_ex_act(severity)
 	switch(severity)
 		if(1)
 			for(var/atom/movable/A as mob|obj in src)//pulls everything out of the locker and hits it with an explosion
 				A.forceMove(src.loc)
-				A.ex_act(severity + 1)
+				LEGACY_EX_ACT(A, severity + 1, null)
 			qdel(src)
 		if(2)
 			if(prob(50))
 				for (var/atom/movable/A as mob|obj in src)
 					A.forceMove(src.loc)
-					A.ex_act(severity + 1)
+					LEGACY_EX_ACT(A, severity + 1, null)
 				qdel(src)
 		if(3)
 			if(prob(5))
@@ -395,11 +395,11 @@
 		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
 
 /obj/structure/closet/update_icon()//Putting the sealed stuff in updateicon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
-	overlays.Cut()
+	cut_overlays()
 	if(!opened)
 		icon_state = icon_closed
 		if(sealed)
-			overlays += "welded"
+			add_overlay("welded")
 	else
 		icon_state = icon_opened
 

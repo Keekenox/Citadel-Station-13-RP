@@ -15,7 +15,8 @@
 					"Coffsearch" = "coffin-Research",
 					"X-88" = "xeightyeight-science",
 					"Acheron" = "mechoid-Science",
-					"ZOOM-BA" = "zoomba-research"
+					"ZOOM-BA" = "zoomba-research",
+					"W02M" = "worm-engineering"
 					)
 
 /obj/item/robot_module/robot/research/Initialize(mapload)
@@ -74,7 +75,9 @@
 	sprites = list(
 					"Research Hound" = "science",
 					"Borgi" = "borgi-sci",
-					"F3-LINE" = "FELI-Research"
+					"F3-LINE" = "FELI-Research",
+					"Sci-9" = "scihound",
+					"Sci-9 Dark" = "scihounddark"
 					)
 	channels = list("Science" = 1)
 	can_be_pushed = 0

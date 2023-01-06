@@ -16,12 +16,14 @@
 	species_restricted = list(SPECIES_HUMAN, SPECIES_PROMETHEAN, SPECIES_ALRAUNE)
 	sprite_sheets_refit = list(
 		SPECIES_UNATHI = 'icons/mob/clothing/species/unathi/helmet.dmi',
+		SPECIES_UNATHI_DIGI = 'icons/mob/clothing/species/unathidigi/head.dmi',
 		SPECIES_TAJ = 'icons/mob/clothing/species/tajaran/helmet.dmi',
 		SPECIES_SKRELL = 'icons/mob/clothing/species/skrell/helmet.dmi'
 		//Teshari have a general sprite sheet defined in modules/clothing/clothing.dm
 		)
 	sprite_sheets_obj = list(
 		SPECIES_UNATHI = 'icons/obj/clothing/species/unathi/hats.dmi',
+		SPECIES_UNATHI_DIGI = 'icons/obj/clothing/species/unathi/hats.dmi',
 		SPECIES_TAJ = 'icons/obj/clothing/species/tajaran/hats.dmi',
 		SPECIES_SKRELL = 'icons/obj/clothing/species/skrell/hats.dmi',
 		SPECIES_TESHARI = 'icons/obj/clothing/species/teshari/hats.dmi',
@@ -46,6 +48,7 @@
 	species_restricted = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_PROMETHEAN)
 	sprite_sheets_refit = list(
 		SPECIES_UNATHI = 'icons/mob/clothing/species/unathi/suits.dmi',
+		SPECIES_UNATHI_DIGI = 'icons/mob/clothing/species/unathidigi/suits.dmi',
 		SPECIES_TAJ = 'icons/mob/clothing/species/tajaran/suits.dmi',
 		SPECIES_SKRELL = 'icons/mob/clothing/species/skrell/suits.dmi'
 		//Teshari have a general sprite sheet defined in modules/clothing/clothing.dm
@@ -54,6 +57,7 @@
 		SPECIES_TAJ				= 'icons/obj/clothing/species/tajaran/suits.dmi',
 		SPECIES_SKRELL			= 'icons/obj/clothing/species/skrell/suits.dmi',
 		SPECIES_UNATHI			= 'icons/obj/clothing/species/unathi/suits.dmi',
+		SPECIES_UNATHI_DIGI     = 'icons/obj/clothing/species/unathi/suits.dmi',
 		SPECIES_TESHARI			= 'icons/obj/clothing/species/teshari/suits.dmi',
 		SPECIES_NEVREAN			= 'icons/obj/clothing/species/nevrean/suits.dmi',
 		SPECIES_AKULA			= 'icons/obj/clothing/species/akula/suits.dmi',
@@ -106,49 +110,49 @@
 	if(boots)
 		if (H.equip_to_slot_if_possible(boots, SLOT_ID_SHOES))
 			to_chat(M, "Your suit's magboots deploy with a click.")
-			ADD_TRAIT(boots, TRAIT_NODROP, TOGGLE_CLOTHING_TRAIT)
+			ADD_TRAIT(boots, TRAIT_ITEM_NODROP, TOGGLE_CLOTHING_TRAIT)
 
 	if(helmet)
 		if(H.head)
 			to_chat(M, "You are unable to deploy your suit's helmet as \the [H.head] is in the way.")
 		else if (H.equip_to_slot_if_possible(helmet, SLOT_ID_HEAD))
 			to_chat(M, "Your suit's helmet deploys with a hiss.")
-			ADD_TRAIT(helmet, TRAIT_NODROP, TOGGLE_CLOTHING_TRAIT)
+			ADD_TRAIT(helmet, TRAIT_ITEM_NODROP, TOGGLE_CLOTHING_TRAIT)
 
 	if(tank)
 		if(H.s_store) //In case someone finds a way.
 			to_chat(M, "Alarmingly, the valve on your suit's installed tank fails to engage.")
 		else if (H.equip_to_slot_if_possible(tank, SLOT_ID_SUIT_STORAGE))
 			to_chat(M, "The valve on your suit's installed tank safely engages.")
-			ADD_TRAIT(tank, TRAIT_NODROP, TOGGLE_CLOTHING_TRAIT)
+			ADD_TRAIT(tank, TRAIT_ITEM_NODROP, TOGGLE_CLOTHING_TRAIT)
 
 	if(cooler)
 		if(H.s_store) //Ditto
 			to_chat(M, "Alarmingly, the cooling unit installed into your suit fails to deploy.")
 		else if (H.equip_to_slot_if_possible(cooler, SLOT_ID_SUIT_STORAGE))
 			to_chat(M, "Your suit's cooling unit deploys.")
-			ADD_TRAIT(cooler, TRAIT_NODROP, TOGGLE_CLOTHING_TRAIT)
+			ADD_TRAIT(cooler, TRAIT_ITEM_NODROP, TOGGLE_CLOTHING_TRAIT)
 
 /obj/item/clothing/suit/space/void/unequipped(mob/user, slot, flags)
 	. = ..()
 
 	if(helmet)
-		REMOVE_TRAIT(helmet, TRAIT_NODROP, TOGGLE_CLOTHING_TRAIT)
+		REMOVE_TRAIT(helmet, TRAIT_ITEM_NODROP, TOGGLE_CLOTHING_TRAIT)
 		if(helmet.loc != src)
 			helmet.forceMove(src)
 
 	if(boots)
-		REMOVE_TRAIT(boots, TRAIT_NODROP, TOGGLE_CLOTHING_TRAIT)
+		REMOVE_TRAIT(boots, TRAIT_ITEM_NODROP, TOGGLE_CLOTHING_TRAIT)
 		if(boots.loc != src)
 			boots.forceMove(src)
 
 	if(tank)
-		REMOVE_TRAIT(tank, TRAIT_NODROP, TOGGLE_CLOTHING_TRAIT)
+		REMOVE_TRAIT(tank, TRAIT_ITEM_NODROP, TOGGLE_CLOTHING_TRAIT)
 		if(tank.loc != src)
 			tank.forceMove(src)
 
 	if(cooler)
-		REMOVE_TRAIT(cooler, TRAIT_NODROP, TOGGLE_CLOTHING_TRAIT)
+		REMOVE_TRAIT(cooler, TRAIT_ITEM_NODROP, TOGGLE_CLOTHING_TRAIT)
 		if(cooler.loc != src)
 			cooler.forceMove(src)
 
@@ -177,13 +181,13 @@
 		to_chat(H, "<span class='notice'>You retract your suit helmet.</span>")
 		playsound(src, 'sound/items/helmetdeploy.ogg', 40, 1)
 		helmet.forceMove(src)
-		REMOVE_TRAIT(helmet, TRAIT_NODROP, TOGGLE_CLOTHING_TRAIT)
+		REMOVE_TRAIT(helmet, TRAIT_ITEM_NODROP, TOGGLE_CLOTHING_TRAIT)
 	else
 		if(H.head)
 			to_chat(H, "<span class='danger'>You cannot deploy your helmet while wearing \the [H.head].</span>")
 			return
 		if(H.equip_to_slot_if_possible(helmet, SLOT_ID_HEAD))
-			ADD_TRAIT(helmet, TRAIT_NODROP, TOGGLE_CLOTHING_TRAIT)
+			ADD_TRAIT(helmet, TRAIT_ITEM_NODROP, TOGGLE_CLOTHING_TRAIT)
 			to_chat(H, "<span class='info'>You deploy your suit helmet, sealing you off from the world.</span>")
 			playsound(src, 'sound/items/helmetdeploy.ogg', 40, 1)
 	helmet.update_light(H)
@@ -211,11 +215,11 @@
 
 	if(H.shoes == boots)
 		to_chat(H, "<span class='notice'>You retract your magboots.</span>")
-		REMOVE_TRAIT(boots, TRAIT_NODROP, TOGGLE_CLOTHING_TRAIT)
+		REMOVE_TRAIT(boots, TRAIT_ITEM_NODROP, TOGGLE_CLOTHING_TRAIT)
 		boots.forceMove(src)
 	else
 		if(H.equip_to_slot_if_possible(boots, SLOT_ID_SHOES))
-			ADD_TRAIT(boots, TRAIT_NODROP, TOGGLE_CLOTHING_TRAIT)
+			ADD_TRAIT(boots, TRAIT_ITEM_NODROP, TOGGLE_CLOTHING_TRAIT)
 			to_chat(H, "<span class='info'>You deploy your magboots.</span>")
 
 // below is code for the action button method. im dumb. but it works? if you figure out a way to make it better tell me // hey peesh i made it better -hatter
@@ -252,7 +256,7 @@
 		removing = cooler
 		cooler = null
 	to_chat(H, "<span class='info'>You press the emergency release, ejecting \the [removing] from your suit.</span>")
-	REMOVE_TRAIT(removing, TRAIT_NODROP, TOGGLE_CLOTHING_TRAIT)
+	REMOVE_TRAIT(removing, TRAIT_ITEM_NODROP, TOGGLE_CLOTHING_TRAIT)
 	removing.forceMove(drop_location())
 
 /obj/item/clothing/suit/space/void/attackby(obj/item/W as obj, mob/user as mob)

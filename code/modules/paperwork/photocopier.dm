@@ -119,7 +119,7 @@
 			copyitem = null
 		else if(has_buckled_mobs())
 			to_chat(buckled_mobs[1], "<span class='notice'>You feel a slight pressure on your ass.</span>") // It can't eject your asscheeks, but it'll try.
-			return TOPIC_REFRESH
+			return PREFERENCES_REFRESH
 	else if(href_list["min"])
 		if(copies > 1)
 			copies--
@@ -184,7 +184,7 @@
 
 	return
 
-/obj/machinery/photocopier/ex_act(severity)
+/obj/machinery/photocopier/legacy_ex_act(severity)
 	switch(severity)
 		if(1.0)
 			qdel(src)
@@ -220,7 +220,7 @@
 	c.ico = copy.ico
 	c.offset_x = copy.offset_x
 	c.offset_y = copy.offset_y
-	var/list/temp_overlays = copy.overlays       //Iterates through stamps
+	var/list/temp_overlays = copy.overlays     //Iterates through stamps
 	var/image/img                                //and puts a matching
 	for (var/j = 1, j <= min(temp_overlays.len, copy.ico.len), j++) //gray overlay onto the copy
 		if (findtext(copy.ico[j], "cap") || findtext(copy.ico[j], "cent"))
@@ -231,7 +231,7 @@
 			img = image('icons/obj/bureaucracy.dmi', "paper_stamp-dots")
 		img.pixel_x = copy.offset_x[j]
 		img.pixel_y = copy.offset_y[j]
-		c.overlays += img
+		c.add_overlay(img)
 	c.updateinfolinks()
 	if(need_toner)
 		toner--
@@ -280,6 +280,8 @@
 			if(SPECIES_TAJ)
 				temp_img = icon('icons/obj/butts.dmi', "tajaran")
 			if(SPECIES_UNATHI)
+				temp_img = icon('icons/obj/butts.dmi', "unathi")
+			if(SPECIES_UNATHI_DIGI)
 				temp_img = icon('icons/obj/butts.dmi', "unathi")
 			if(SPECIES_SKRELL)
 				temp_img = icon('icons/obj/butts.dmi', "skrell")

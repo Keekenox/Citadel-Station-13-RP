@@ -9,7 +9,7 @@
 /atom/movable/screen
 	name = ""
 	icon = 'icons/mob/screen1.dmi'
-	appearance_flags = TILE_BOUND|PIXEL_SCALE|NO_CLIENT_COLOR
+	appearance_flags = PIXEL_SCALE | NO_CLIENT_COLOR
 	layer = LAYER_HUD_BASE
 	plane = PLANE_PLAYER_HUD
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
@@ -165,8 +165,8 @@
 		update_icon()
 
 /atom/movable/screen/zone_sel/update_icon()
-	overlays.Cut()
-	overlays += image('icons/mob/zone_sel.dmi', "[selecting]")
+	cut_overlays()
+	add_overlay(image('icons/mob/zone_sel.dmi', "[selecting]"))
 
 /// The UI Button to open the TGUI Crafting Menu
 /atom/movable/screen/craft
@@ -207,6 +207,7 @@
 				L.resist()
 
 		if("mov_intent")
+			// todo: reworks
 			if(isliving(usr))
 				if(iscarbon(usr))
 					var/mob/living/carbon/C = usr

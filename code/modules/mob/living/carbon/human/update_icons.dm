@@ -82,8 +82,9 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 /mob/living/carbon/human/update_transform()
 	var/desired_scale_x = size_multiplier * icon_scale_x
 	var/desired_scale_y = size_multiplier * icon_scale_y
-	desired_scale_x *= species.icon_scale_x
-	desired_scale_y *= species.icon_scale_y
+	if(istype(species))
+		desired_scale_x *= species.icon_scale_x
+		desired_scale_y *= species.icon_scale_y
 
 	var/matrix/M = matrix()
 	var/anim_time = 3
@@ -107,6 +108,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		set_base_layer(MOB_LAYER)
 
 	animate(src, transform = M, time = anim_time)
+	appearance_flags = fuzzy? (appearance_flags & ~(PIXEL_SCALE)) : (appearance_flags | PIXEL_SCALE)
 	update_icon_special() //May contain transform-altering things
 
 //DAMAGE OVERLAYS
@@ -150,14 +152,14 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		else
 			DI = GLOB.damage_icon_parts[cache_index]
 
-		standing_image.overlays += DI
+		standing_image.add_overlay(DI)
 
 	overlays_standing[DAMAGE_LAYER]	= standing_image
 	apply_layer(DAMAGE_LAYER)
 
 //BASE MOB SPRITE
 /mob/living/carbon/human/update_icons_body()
-	if(QDESTROYING(src) || !(flags & INITIALIZED))
+	if(QDESTROYING(src) || !(atom_flags & ATOM_INITIALIZED))
 		return
 
 	var/husk_color_mod = rgb(96,88,80)
@@ -389,7 +391,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	var/icon/face_standing = icon(icon = 'icons/mob/human_face.dmi', icon_state = "bald_s")
 
 	if(f_style)
-		var/datum/sprite_accessory/facial_hair_style = facial_hair_styles_list[f_style]
+		var/datum/sprite_accessory/facial_hair_style = GLOB.legacy_facial_hair_lookup[f_style]
 		if(facial_hair_style && (!facial_hair_style.apply_restrictions || (src.species.get_bodytype_legacy(src) in facial_hair_style.species_allowed)))
 			var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
 			if(facial_hair_style.do_colouration)
@@ -398,10 +400,10 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 			face_standing.Blend(facial_s, ICON_OVERLAY)
 
 	if(h_style)
-		var/datum/sprite_accessory/hair/hair_style = hair_styles_list[h_style]
+		var/datum/sprite_accessory/hair/hair_style = GLOB.legacy_hair_lookup[h_style]
 		if(head && (head.flags_inv & BLOCKHEADHAIR))
-			if(!(hair_style.flags & HAIR_VERY_SHORT))
-				hair_style = hair_styles_list["Short Hair"]
+			if(!(hair_style.hair_flags & HAIR_VERY_SHORT))
+				hair_style = GLOB.legacy_hair_lookup["Short Hair"]
 
 		if(hair_style && (!hair_style.apply_restrictions || (src.species.get_bodytype_legacy(src) in hair_style.species_allowed)))
 			var/icon/grad_s
@@ -808,11 +810,14 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 /mob/living/carbon/human/update_hud()	//TODO: do away with this if possible
 	if(QDESTROYING(src))
 		return
-
+	// todo: this is utterly shitcode and fucking stupid ~silicons
+	// todo: the rest of hud code here ain't much better LOL
+	var/list/obj/item/relevant = get_equipped_items(TRUE, TRUE)
+	if(hud_used)
+		for(var/obj/item/I as anything in relevant)
+			position_hud_item(I, slot_by_item(I))
 	if(client)
-		client.screen |= contents
-		if(hud_used)
-			hud_used.hidden_inventory_update() 	//Updates the screenloc of the items on the 'other' inventory bar
+		client.screen |= relevant
 
 //update whether handcuffs appears on our hud.
 /mob/living/carbon/proc/update_hud_handcuffed()
@@ -823,7 +828,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 		hud_used.l_hand_hud_object.update_icon()
 		hud_used.r_hand_hud_object.update_icon()
 
-/mob/living/carbon/human/update_handcuffed()
+/mob/living/carbon/human/update_inv_handcuffed()
 	if(QDESTROYING(src))
 		return
 
@@ -1042,7 +1047,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	for(var/datum/modifier/M in modifiers)
 		if(M.mob_overlay_state)
 			var/image/I = image(icon = 'icons/mob/modifier_effects.dmi', icon_state = M.mob_overlay_state)
-			effects.overlays += I //TODO, this compositing is annoying.
+			effects.add_overlay(I) //TODO, this compositing is annoying.
 
 	overlays_standing[MODIFIER_EFFECTS_LAYER] = effects
 
@@ -1124,7 +1129,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 	for(var/obj/item/organ/external/E in organs)
 		if(E.open)
 			var/image/I = image(icon = 'icons/mob/surgery.dmi',  icon_state = "[E.icon_name][round(E.open)]", layer = BODY_LAYER+SURGERY_LAYER)
-			total.overlays += I //TODO: This compositing is annoying
+			total.add_overlay(I) //TODO: This compositing is annoying
 
 	if(total.overlays.len)
 		overlays_standing[SURGERY_LAYER] = total

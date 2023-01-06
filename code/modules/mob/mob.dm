@@ -140,7 +140,7 @@
 	zone_sel = null
 
 /// Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
-/mob/proc/show_message(msg, type, alt, alt_type)
+/mob/show_message(msg, type, alt, alt_type)
 
 	if(!client && !teleop)	return
 
@@ -264,7 +264,7 @@
  * [this byond forum post](https://secure.byond.com/forum/?post=1326139&page=2#comment8198716)
  * for why this isn't atom/verb/examine()
  */
-/mob/verb/examinate(atom/A as mob|obj|turf in view(get_turf(src))) //It used to be oview(12), but I can't really say why
+/mob/verb/examinate(atom/A as mob|obj|turf in view()) //It used to be oview(12), but I can't really say why
 	set name = "Examine"
 	set category = "IC"
 
@@ -302,7 +302,7 @@
  *
  * visible_message will handle invisibility properly
  *
- * overridden here and in /mob/dead/observer for different point span classes and sanity checks
+ * overridden here and in /mob/observer/dead for different point span classes and sanity checks
  */
 /mob/verb/pointed(atom/A as mob|obj|turf in view())
 	set name = "Point To"
@@ -339,19 +339,35 @@
 	new_layer = clamp(new_layer, -100, 100)
 	set_relative_layer(new_layer)
 
-/mob/verb/shift_relative_behind(mob/M as mob in get_relative_shift_targets())
+/mob/verb/shift_relative_behind()
 	set name = "Move Behind"
 	set desc = "Move behind of a mob with the same base layer as yourself"
 	set src = usr
 	set category = "IC"
 
+	if(!client.throttle_verb())
+		return
+
+	var/mob/M = tgui_input_list(src, "What mob to move behind?", "Move Behind", get_relative_shift_targets())
+
+	if(QDELETED(M))
+		return
+
 	set_relative_layer(M.relative_layer - 1)
 
-/mob/verb/shift_relative_infront(mob/M as mob in get_relative_shift_targets())
+/mob/verb/shift_relative_infront()
 	set name = "Move Infront"
 	set desc = "Move infront of a mob with the same base layer as yourself"
 	set src = usr
 	set category = "IC"
+
+	if(!client.throttle_verb())
+		return
+
+	var/mob/M = tgui_input_list(src, "What mob to move infront?", "Move Infront", get_relative_shift_targets())
+
+	if(QDELETED(M))
+		return
 
 	set_relative_layer(M.relative_layer + 1)
 
@@ -1156,6 +1172,12 @@ GLOBAL_VAR_INIT(exploit_warn_spam_prevention, 0)
 /mob/proc/check_obscured_slots()
 	return
 
+/mob/z_pass_in(atom/movable/AM, dir, turf/old_loc)
+	return TRUE	// we don't block
+
+/mob/z_pass_out(atom/movable/AM, dir, turf/new_loc)
+	return TRUE
+
 //! Pixel Offsets
 /mob/proc/get_buckled_pixel_x_offset()
 	if(!buckled)
@@ -1229,3 +1251,25 @@ GLOBAL_VAR_INIT(exploit_warn_spam_prevention, 0)
 
 /mob/CanReachIn(atom/movable/mover, atom/target, obj/item/tool, list/cache)
 	return FALSE
+
+//! Radioactivity
+/mob/clean_radiation(str, mul, cheap)
+	. = ..()
+	if(cheap)
+		return
+	for(var/obj/item/I as anything in get_equipped_items(TRUE, TRUE))
+		I.clean_radiation(str, mul, cheap)
+
+//! Misc
+/**
+ * Whether the mob can use Topic to interact with machines
+ *
+ * Args:
+ * be_close - Whether you need to be next to/on top of M
+ * no_dexterity - Whether you need to be an ADVANCEDTOOLUSER
+ * no_tk - If be_close is TRUE, this will block Telekinesis from bypassing the requirement
+ * need_hands - Whether you need hands to use this
+ * floor_okay - Whether mobility flags should be checked for MOBILITY_UI to use.
+ */
+/mob/proc/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
+	return
